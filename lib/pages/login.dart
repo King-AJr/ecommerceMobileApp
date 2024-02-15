@@ -1,8 +1,8 @@
 import "package:ecommerce_app/services/auth_pages.dart";
 import "package:flutter/material.dart";
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,16 +11,16 @@ class SignUpPage extends StatelessWidget {
       _buildHeader(),
       SliverList(
           delegate: SliverChildListDelegate(
-              [AuthPages(pageType: AuthPageType.signup)])),
+              [const AuthPages(pageType: AuthPageType.login)])),
     ]));
   }
 
   Widget _buildHeader() {
-    return SliverAppBar(
+    return const SliverAppBar(
       title: Text(
-        'Sign Up',
+        'Login',
         textAlign: TextAlign.start,
-        style: const TextStyle(
+        style: TextStyle(
           color: Colors.black,
           fontSize: 30.0,
           fontWeight: FontWeight.bold,
