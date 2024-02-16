@@ -26,7 +26,7 @@ class _AuthPagesState extends State<AuthPages> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 60.0),
+          const SizedBox(height: 40.0),
           if (widget.pageType == AuthPageType.forgotPassword)
             _forgotPasswordText(),
           _buildForm(),
@@ -34,7 +34,7 @@ class _AuthPagesState extends State<AuthPages> {
           if (widget.pageType == AuthPageType.signup ||
               widget.pageType == AuthPageType.login)
             _buildLoginButton(),
-          const SizedBox(height: 120.0),
+          const SizedBox(height: 85.0),
           _buildSocialLogin(),
         ],
       ),
@@ -62,6 +62,8 @@ class _AuthPagesState extends State<AuthPages> {
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Please enter your name';
+                } else if (!_isValidUsername(value)) {
+                  return "User's name must be more than 3 characters\nand can not contain numbers";
                 }
                 return null;
               },
@@ -71,10 +73,11 @@ class _AuthPagesState extends State<AuthPages> {
           _buildTextFormField(
             labelText: 'Email',
             hintText: 'johndoe@email.com',
-            obscureText: true,
             validator: (value) {
               if (value!.isEmpty) {
                 return 'Please enter your email';
+              } else if (!_isValidEmail(value)) {
+                return 'Please enter a valid email';
               }
               return null;
             },
@@ -86,9 +89,12 @@ class _AuthPagesState extends State<AuthPages> {
             _buildTextFormField(
               labelText: 'Password',
               hintText: 'Password',
+              obscureText: true,
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Please enter your password';
+                } else if (!_isValidPassword(value)) {
+                  return 'Password must be atleast 8 characters long\n and must contain a capital letter, number \nand special character';
                 }
                 return null;
               },
@@ -213,5 +219,21 @@ class _AuthPagesState extends State<AuthPages> {
     }
 
     return buttonText;
+  }
+
+  bool _isValidEmail(String email) {
+    RegExp emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    return emailRegExp.hasMatch(email);
+  }
+
+  bool _isValidPassword(String password) {
+    RegExp passwordRegExp = RegExp(
+        r'^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+={}\[\]:;<>,.?\-]).{8,}$');
+    return passwordRegExp.hasMatch(password);
+  }
+
+  bool _isValidUsername(String username) {
+    RegExp usernameRegExp = RegExp(r'^[a-zA-Z]{3,23}$');
+    return usernameRegExp.hasMatch(username);
   }
 }

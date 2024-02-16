@@ -16,18 +16,24 @@ class LoginPage extends StatelessWidget {
   }
 
   Widget _buildHeader() {
-    return const SliverAppBar(
-      title: Text(
-        'Login',
-        textAlign: TextAlign.start,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 30.0,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      floating: true,
-      snap: true,
-    );
+    return SliverAppBar(
+        floating: true,
+        snap: true,
+        bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(30.0),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: Container(
+                alignment: Alignment.bottomLeft,
+                child: const Text(
+                  'Login',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            )));
   }
 }

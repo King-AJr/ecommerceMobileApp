@@ -17,17 +17,23 @@ class SignUpPage extends StatelessWidget {
 
   Widget _buildHeader() {
     return SliverAppBar(
-      title: Text(
-        'Sign Up',
-        textAlign: TextAlign.start,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 30.0,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      floating: true,
-      snap: true,
-    );
+        floating: true,
+        snap: true,
+        bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(30.0),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: Container(
+                alignment: Alignment.bottomLeft,
+                child: const Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            )));
   }
 }
