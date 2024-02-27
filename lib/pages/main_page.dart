@@ -12,8 +12,6 @@ class MainPage extends StatelessWidget {
         Expanded(
           flex: 3,
           child: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 3 / 4,
             child: Stack(
               fit: StackFit.expand,
               children: [
@@ -226,7 +224,8 @@ class MainPage extends StatelessWidget {
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: const Icon(Icons.home, size: 40, color: Colors.red),
+                    icon: const Icon(Icons.home,
+                        size: 40, color: Color(0xFFDB3022)),
                   ),
                   const Text('Home'),
                 ],

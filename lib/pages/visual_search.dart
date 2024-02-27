@@ -22,7 +22,7 @@ class VisualSearch extends StatelessWidget {
             // Container with text
             Center(
               child: Container(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   color: Colors.transparent, // Make container transparent
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

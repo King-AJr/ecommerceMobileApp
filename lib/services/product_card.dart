@@ -35,7 +35,7 @@ class ProductCard extends StatelessWidget {
               decoration: const BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    blurRadius: 4,
+                    blurRadius: 0,
                     color: Color(0x3600000F),
                     offset: Offset(0, 2),
                   )
@@ -60,11 +60,11 @@ class ProductCard extends StatelessWidget {
             const SizedBox(height: 10),
             const Row(
               children: [
-                Icon(Icons.star, color: Colors.yellow),
-                Icon(Icons.star, color: Colors.yellow),
-                Icon(Icons.star, color: Colors.yellow),
-                Icon(Icons.star, color: Colors.yellow),
-                Icon(Icons.star, color: Colors.yellow),
+                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
                 Text('(10)')
               ],
             ),
