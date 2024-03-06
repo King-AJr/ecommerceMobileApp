@@ -3,7 +3,7 @@ import "package:ecommerce_app/services/product_card.dart";
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
-
+  //use container with bg image in decoration instead of stack
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -245,7 +245,7 @@ class MainPage extends StatelessWidget {
                     onPressed: () {},
                     icon: const Icon(Icons.shopping_bag_outlined, size: 40),
                   ),
-                  Text('Bag'),
+                  const Text('Bag'),
                 ],
               ),
               Column(

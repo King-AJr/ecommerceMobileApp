@@ -3,7 +3,7 @@ import "package:ecommerce_app/services/product_card.dart";
 
 class MainPageTwo extends StatelessWidget {
   const MainPageTwo({super.key});
-
+  //use build
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -419,7 +419,7 @@ class MainPageTwo extends StatelessWidget {
                   onPressed: () {},
                   icon: const Icon(Icons.shopping_bag_outlined, size: 40),
                 ),
-                Text('Bag'),
+                const Text('Bag'),
               ],
             ),
             Column(

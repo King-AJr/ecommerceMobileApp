@@ -1,3 +1,6 @@
+import 'package:ecommerce_app/pages/catalog_one.dart';
+import 'package:ecommerce_app/pages/categories.dart';
+import 'package:ecommerce_app/pages/category_two.dart';
 import 'package:ecommerce_app/pages/finding_results.dart';
 import 'package:ecommerce_app/pages/forgot_password.dart';
 import 'package:ecommerce_app/pages/login.dart';
@@ -10,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce_app/pages/sign_up.dart';
 
 void main() {
-  runApp(MaterialApp(initialRoute: '/main_page_three', routes: {
+  runApp(MaterialApp(initialRoute: '/catalog_one', routes: {
     '/': (context) => const SignUpPage(),
     '/login': (context) => const LoginPage(),
     '/forgot_password': (context) => const ForgotPasswordPage(),
@@ -19,6 +22,9 @@ void main() {
     '/finding_results': (context) => const FindingResult(),
     '/main_page': (context) => const MainPage(),
     '/main_page_two': (context) => const MainPageTwo(),
-    '/main_page_three': (context) => const MainPageThree()
+    '/main_page_three': (context) => const MainPageThree(),
+    '/categories': (context) => const Categories(),
+    '/category_two': (context) => const CategoryTwo(),
+    '/catalog_one': (context) => const CatalogOne(),
   }));
 }

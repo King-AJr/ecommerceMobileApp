@@ -11,7 +11,7 @@ class SignUpPage extends StatelessWidget {
       _buildHeader(),
       SliverList(
           delegate: SliverChildListDelegate(
-              [AuthPages(pageType: AuthPageType.signup)])),
+              [const AuthPages(pageType: AuthPageType.signup)])),
     ]));
   }
 
