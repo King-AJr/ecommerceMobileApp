@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_svg/flutter_svg.dart';
+
 class ProductCard extends StatelessWidget {
   final String image;
   final String title;
   final double price;
   final double width;
   final double aspectRatio;
-
   const ProductCard({
     Key? key,
     required this.image,
@@ -15,17 +16,10 @@ class ProductCard extends StatelessWidget {
     this.width = 140,
     this.aspectRatio = 1.02,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
-    // Calculate font sizes based on screen width
-    final double starIconSize = screenWidth * 0.035;
-    final double titleFontSize = screenWidth * 0.035;
-    final double priceFontSize = screenWidth * 0.04;
-
     return Container(
+      // width: MediaQuery.of(context).size.width * 0.45,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
@@ -52,23 +46,24 @@ class ProductCard extends StatelessWidget {
                 borderRadius: const BorderRadius.all(
                   Radius.circular(8),
                 ),
-                child: Image.asset(
-                  image,
-                  fit: BoxFit.cover,
+                child: AspectRatio(
+                  aspectRatio: 3.5 / 4, // 2:3 aspect ratio (two-thirds)
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
             const SizedBox(height: 10),
-            Row(
+            const Row(
               children: [
-                Icon(Icons.star, color: const Color(0xFFFFBA49), size: starIconSize),
-                Icon(Icons.star, color: const Color(0xFFFFBA49), size: starIconSize),
-                Icon(Icons.star, color: const Color(0xFFFFBA49), size: starIconSize),
-                Icon(Icons.star, color: const Color(0xFFFFBA49), size: starIconSize),
-                Icon(Icons.star, color: const Color(0xFFFFBA49), size: starIconSize),
-                Text('(10)',
-                    style: TextStyle(
-                        fontSize: titleFontSize, fontWeight: FontWeight.w100)),
+                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                Text('(10)')
               ],
             ),
             Padding(
@@ -80,7 +75,6 @@ class ProductCard extends StatelessWidget {
                     padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
                     child: Text(
                       title,
-                      style: TextStyle(fontSize: titleFontSize),
                     ),
                   ),
                 ],
@@ -95,7 +89,6 @@ class ProductCard extends StatelessWidget {
                     padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
                     child: Text(
                       '\$$price',
-                      style: TextStyle(fontSize: priceFontSize),
                     ),
                   ),
                 ],

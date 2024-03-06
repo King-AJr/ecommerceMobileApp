@@ -129,7 +129,7 @@ class CatalogTwo extends StatelessWidget {
               true, // Enable shrinkWrap to make GridView fit its content
           physics: ScrollPhysics(), // Disable GridView's scroll behavior
           crossAxisCount: 2,
-          childAspectRatio: 0.62,
+          childAspectRatio: 0.58,
           crossAxisSpacing: 15,
           mainAxisSpacing: 15,
           padding: const EdgeInsets.all(15),
