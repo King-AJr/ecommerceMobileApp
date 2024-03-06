@@ -3,7 +3,6 @@ import "package:ecommerce_app/services/product_card.dart";
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
-  //use container with bg image in decoration instead of stack
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +30,7 @@ class MainPage extends StatelessWidget {
                           color: Colors.white,
                           fontSize: 70,
                           fontWeight: FontWeight.bold,
-                          height: 1.0, // Adjust line height
-                          //letterSpacing: -1.0, // Adjust letter spacing
+                          height: 1.0,
                         ),
                       ),
                     ),
@@ -91,7 +89,7 @@ class MainPage extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.fromLTRB(15, 0, 0, 0),
                       height: 300,
-                      width: 160, // Adjust the height as needed
+                      width: 160,
                       color: Colors.white,
                       child: Stack(
                         children: [
@@ -104,21 +102,21 @@ class MainPage extends StatelessWidget {
                             top: 10,
                             left: 10,
                             child: Container(
-                              width: 60, // Adjust width as needed
-                              height: 30, // Adjust height as needed
+                              width: 60,
+                              height: 30, 
                               decoration: BoxDecoration(
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(
-                                    20), // Adjust border radius as needed
+                                    20), 
                               ),
                               child: const Center(
                                 child: Text(
-                                  'NEW', // Your discount text
+                                  'NEW',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 12,
                                       fontWeight: FontWeight
-                                          .bold // Adjust font size as needed
+                                          .bold 
                                       ),
                                 ),
                               ),
@@ -130,7 +128,7 @@ class MainPage extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.fromLTRB(15, 0, 0, 0),
                       height: 300,
-                      width: 160, // Adjust the height as needed
+                      width: 160, 
                       color: Colors.white,
                       child: Stack(
                         children: [
@@ -143,8 +141,8 @@ class MainPage extends StatelessWidget {
                             top: 10,
                             left: 10,
                             child: Container(
-                              width: 60, // Adjust width as needed
-                              height: 30, // Adjust height as needed
+                              width: 60, 
+                              height: 30, 
                               decoration: BoxDecoration(
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(
@@ -152,12 +150,12 @@ class MainPage extends StatelessWidget {
                               ),
                               child: const Center(
                                 child: Text(
-                                  'NEW', // Your discount text
+                                  'NEW', 
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 12,
                                       fontWeight: FontWeight
-                                          .bold // Adjust font size as needed
+                                          .bold 
                                       ),
                                 ),
                               ),
@@ -169,7 +167,7 @@ class MainPage extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.fromLTRB(15, 0, 0, 0),
                       height: 300,
-                      width: 160, // Adjust the height as needed
+                      width: 160,
                       color: Colors.white,
                       child: Stack(
                         children: [
@@ -182,21 +180,21 @@ class MainPage extends StatelessWidget {
                             top: 10,
                             left: 10,
                             child: Container(
-                              width: 60, // Adjust width as needed
-                              height: 30, // Adjust height as needed
+                              width: 60, 
+                              height: 30,
                               decoration: BoxDecoration(
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(
-                                    20), // Adjust border radius as needed
+                                    20), 
                               ),
                               child: const Center(
                                 child: Text(
-                                  'NEW', // Your discount text
+                                  'NEW',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 12,
                                       fontWeight: FontWeight
-                                          .bold // Adjust font size as needed
+                                          .bold
                                       ),
                                 ),
                               ),
@@ -218,9 +216,9 @@ class MainPage extends StatelessWidget {
         selectedFontSize: 14,
         unselectedFontSize: 14,
         showUnselectedLabels:
-            true, // Change this according to the current tab index
+            true, 
         onTap: (int index) {
-          // Handle tab selection here
+          
         },
         items: const [
           BottomNavigationBarItem(

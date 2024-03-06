@@ -1,29 +1,24 @@
-import 'package:ecommerce_app/services/catalog_card.dart';
+import "package:ecommerce_app/services/product_card.dart";
 import 'package:flutter/material.dart';
 
-class CatalogOne extends StatelessWidget {
-  const CatalogOne({Key? key});
+class CatalogTwo extends StatelessWidget {
+  const CatalogTwo({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 244, 241, 241),
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        title: const Text("Women's tops",
+            style: TextStyle(fontWeight: FontWeight.bold)),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
         ],
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(150.0),
+          preferredSize: const Size.fromHeight(120.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                padding: EdgeInsets.fromLTRB(15, 5, 0, 0),
-                child: Text(
-                  "Women's tops",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                ),
-              ),
               SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Padding(
@@ -129,140 +124,115 @@ class CatalogOne extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-          child: Column(
-        children: [
-          Stack(
-            children: [
-              const CatalogCard(
-                  name: "Pullover",
-                  brand: "Mango",
-                  price: 54,
-                  imageUrl: 'assets/images/cat_image2.png'),
-              Positioned(
-                  top: 95,
-                  left: 325,
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_outlined,
-                        color: Color.fromARGB(255, 141, 138, 138),
-                        size: 17), // Icon widget
-                    label: const Text(''), // Empty Text widget
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(
-                          12, 5, 5, 5), // Adjust padding as needed
-                      shape: const CircleBorder(), // Circular shape
-                      backgroundColor: Colors.white,
-                      alignment: Alignment.center, // Button color
+        child: GridView.count(
+          shrinkWrap:
+              true, // Enable shrinkWrap to make GridView fit its content
+          physics: ScrollPhysics(), // Disable GridView's scroll behavior
+          crossAxisCount: 2,
+          childAspectRatio: 0.62,
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 15,
+          padding: const EdgeInsets.all(15),
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
+                height: 300,
+                width: 160,
+                child: const Stack(
+                  children: [
+                    ProductCard(
+                      image: 'assets/images/wine_collar_polo.webp',
+                      title: 'Evening dress',
+                      price: 29.99,
                     ),
-                  ))
-            ],
-          ),
-          Stack(
-            children: [
-              const CatalogCard(
-                  name: "Pullover",
-                  brand: "Mango",
-                  price: 54,
-                  imageUrl: 'assets/images/cat_image2.png'),
-              Positioned(
-                  top: 95,
-                  left: 325,
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_outlined,
-                        color: Color.fromARGB(255, 141, 138, 138),
-                        size: 17), // Icon widget
-                    label: const Text(''), // Empty Text widget
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(
-                          12, 5, 5, 5), // Adjust padding as needed
-                      shape: const CircleBorder(), // Circular shape
-                      backgroundColor: Colors.white,
-                      alignment: Alignment.center, // Button color
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                height: 300,
+                width: 160,
+                child: const Stack(
+                  children: [
+                    ProductCard(
+                      image: 'assets/images/wine_collar_polo.webp',
+                      title: 'Evening dress',
+                      price: 29.99,
                     ),
-                  ))
-            ],
-          ),
-          Stack(
-            children: [
-              const CatalogCard(
-                  name: "Shirt",
-                  brand: "Topshop",
-                  price: 24,
-                  imageUrl: 'assets/images/cat_image2.png'),
-              Positioned(
-                  top: 95,
-                  left: 325,
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_outlined,
-                        color: Color.fromARGB(255, 141, 138, 138),
-                        size: 17), // Icon widget
-                    label: const Text(''), // Empty Text widget
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(
-                          12, 5, 5, 5), // Adjust padding as needed
-                      shape: const CircleBorder(), // Circular shape
-                      backgroundColor: Colors.white,
-                      alignment: Alignment.center, // Button color
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                height: 300,
+                width: 160,
+                child: const Stack(
+                  children: [
+                    ProductCard(
+                      image: 'assets/images/wine_collar_polo.webp',
+                      title: 'Evening dress',
+                      price: 29.99,
                     ),
-                  ))
-            ],
-          ),
-          Stack(
-            children: [
-              const CatalogCard(
-                  name: "T-Shirt",
-                  brand: "LOST Ink",
-                  price: 30,
-                  imageUrl: 'assets/images/cat_image2.png'),
-              Positioned(
-                  top: 95,
-                  left: 325,
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_outlined,
-                        color: Color.fromARGB(255, 141, 138, 138),
-                        size: 17), // Icon widget
-                    label: const Text(''), // Empty Text widget
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(
-                          12, 5, 5, 5), // Adjust padding as needed
-                      shape: const CircleBorder(), // Circular shape
-                      backgroundColor: Colors.white,
-                      alignment: Alignment.center, // Button color
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                height: 300,
+                width: 160,
+                child: const Stack(
+                  children: [
+                    ProductCard(
+                      image: 'assets/images/wine_collar_polo.webp',
+                      title: 'Evening dress',
+                      price: 29.99,
                     ),
-                  ))
-            ],
-          ),
-          Stack(
-            children: [
-              const CatalogCard(
-                  name: "Blouse",
-                  brand: "Dorothy Perkins",
-                  price: 74,
-                  imageUrl: 'assets/images/cat_image2.png'),
-              Positioned(
-                  top: 95,
-                  left: 325,
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_outlined,
-                        color: Color.fromARGB(255, 141, 138, 138),
-                        size: 17), // Icon widget
-                    label: const Text(''), // Empty Text widget
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(
-                          12, 5, 5, 5), // Adjust padding as needed
-                      shape: const CircleBorder(), // Circular shape
-                      backgroundColor: Colors.white,
-                      alignment: Alignment.center, // Button color
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                height: 300,
+                width: 160,
+                child: const Stack(
+                  children: [
+                    ProductCard(
+                      image: 'assets/images/wine_collar_polo.webp',
+                      title: 'Evening dress',
+                      price: 29.99,
                     ),
-                  ))
-            ],
-          )
-        ],
-      )),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                height: 300,
+                width: 160,
+                child: const Stack(
+                  children: [
+                    ProductCard(
+                      image: 'assets/images/wine_collar_polo.webp',
+                      title: 'Evening dress',
+                      price: 29.99,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         selectedItemColor: const Color(0xFFDB3022),
