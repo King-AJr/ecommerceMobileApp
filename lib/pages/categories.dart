@@ -95,69 +95,42 @@ class Categories extends StatelessWidget {
             child: CategoryCard(
                 text: "Accessories", imageUrl: 'assets/images/cat_image4.png'),
           ),
-          Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15.0),
-                topRight: Radius.circular(15.0),
-              ),
-              color: Colors.white, // Assuming you want a background color
-            ),
-            constraints: const BoxConstraints(minWidth: double.infinity),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.home,
-                          size: 40, color: Color(0xFFDB3022)),
-                    ),
-                    const Text('Home'),
-                  ],
-                ),
-                Column(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.shopping_cart_outlined, size: 40),
-                    ),
-                    const Text('Cart'),
-                  ],
-                ),
-                Column(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.shopping_bag_outlined, size: 40),
-                    ),
-                    const Text('Bag'),
-                  ],
-                ),
-                Column(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon:
-                          const Icon(Icons.favorite_border_outlined, size: 40),
-                    ),
-                    const Text('Favorites'),
-                  ],
-                ),
-                Column(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.person_2_outlined, size: 40),
-                    ),
-                    const Text('Profile'),
-                  ],
-                ),
-              ],
-            ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        selectedItemColor: const Color(0xFFDB3022),
+        unselectedItemColor: Colors.black,
+        currentIndex: 0,
+        iconSize: 30,
+        selectedFontSize: 14,
+        unselectedFontSize: 14,
+        showUnselectedLabels:
+            true, // Change this according to the current tab index
+        onTap: (int index) {
+          // Handle tab selection here
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-          const SizedBox(height: 20)
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_outlined),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_outlined),
+            label: 'Bag',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite_border_outlined),
+            label: 'Favorites',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_2_outlined),
+            label: 'Profile',
+          ),
         ],
       ),
     );
