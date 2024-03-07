@@ -139,13 +139,54 @@ class CatalogTwo extends StatelessWidget {
               child: Container(
                 height: 300,
                 width: 160,
-                child: const Stack(
+                child: Stack(
                   children: [
-                    ProductCard(
+                    const ProductCard(
                       image: 'assets/images/wine_collar_polo.webp',
                       title: 'Evening dress',
                       price: 29.99,
                     ),
+                    Positioned(
+                      top: 10,
+                      left: 10,
+                      child: Container(
+                        width: 60, // Adjust width as needed
+                        height: 30, // Adjust height as needed
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFDB3022),
+                          borderRadius: BorderRadius.circular(
+                              20), // Adjust border radius as needed
+                        ),
+                        child: const Center(
+                          child: Text(
+                            '-20%', // Your discount text
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight
+                                    .bold // Adjust font size as needed
+                                ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                        top: 170,
+                        left: 120,
+                        child: ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: const Icon(Icons.favorite_border_outlined,
+                              color: Color.fromARGB(255, 141, 138, 138),
+                              size: 17), // Icon widget
+                          label: const Text(''), // Empty Text widget
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.fromLTRB(
+                                12, 5, 5, 5), // Adjust padding as needed
+                            shape: const CircleBorder(), // Circular shape
+                            backgroundColor: Colors.white,
+                            alignment: Alignment.center, // Button color
+                          ),
+                        ))
                   ],
                 ),
               ),
@@ -155,13 +196,30 @@ class CatalogTwo extends StatelessWidget {
               child: Container(
                 height: 300,
                 width: 160,
-                child: const Stack(
+                child: Stack(
                   children: [
-                    ProductCard(
+                    const ProductCard(
                       image: 'assets/images/wine_collar_polo.webp',
                       title: 'Evening dress',
                       price: 29.99,
                     ),
+                    Positioned(
+                        top: 170,
+                        left: 120,
+                        child: ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: const Icon(Icons.favorite_border_outlined,
+                              color: Color.fromARGB(255, 141, 138, 138),
+                              size: 17), // Icon widget
+                          label: const Text(''), // Empty Text widget
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.fromLTRB(
+                                12, 5, 5, 5), // Adjust padding as needed
+                            shape: const CircleBorder(), // Circular shape
+                            backgroundColor: Colors.white,
+                            alignment: Alignment.center, // Button color
+                          ),
+                        ))
                   ],
                 ),
               ),
@@ -171,13 +229,30 @@ class CatalogTwo extends StatelessWidget {
               child: Container(
                 height: 300,
                 width: 160,
-                child: const Stack(
+                child: Stack(
                   children: [
-                    ProductCard(
+                    const ProductCard(
                       image: 'assets/images/wine_collar_polo.webp',
                       title: 'Evening dress',
                       price: 29.99,
                     ),
+                    Positioned(
+                        top: 170,
+                        left: 120,
+                        child: ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: const Icon(Icons.favorite_border_outlined,
+                              color: Color.fromARGB(255, 141, 138, 138),
+                              size: 17), // Icon widget
+                          label: const Text(''), // Empty Text widget
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.fromLTRB(
+                                12, 5, 5, 5), // Adjust padding as needed
+                            shape: const CircleBorder(), // Circular shape
+                            backgroundColor: Colors.white,
+                            alignment: Alignment.center, // Button color
+                          ),
+                        ))
                   ],
                 ),
               ),
@@ -187,13 +262,54 @@ class CatalogTwo extends StatelessWidget {
               child: Container(
                 height: 300,
                 width: 160,
-                child: const Stack(
+                child: Stack(
                   children: [
-                    ProductCard(
+                    const ProductCard(
                       image: 'assets/images/wine_collar_polo.webp',
                       title: 'Evening dress',
                       price: 29.99,
                     ),
+                    Positioned(
+                      top: 10,
+                      left: 10,
+                      child: Container(
+                        width: 60, // Adjust width as needed
+                        height: 30, // Adjust height as needed
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFDB3022),
+                          borderRadius: BorderRadius.circular(
+                              20), // Adjust border radius as needed
+                        ),
+                        child: const Center(
+                          child: Text(
+                            '-20%', // Your discount text
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight
+                                    .bold // Adjust font size as needed
+                                ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                        top: 170,
+                        left: 120,
+                        child: ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: const Icon(Icons.favorite_border_outlined,
+                              color: Color.fromARGB(255, 141, 138, 138),
+                              size: 17), // Icon widget
+                          label: const Text(''), // Empty Text widget
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.fromLTRB(
+                                12, 5, 5, 5), // Adjust padding as needed
+                            shape: const CircleBorder(), // Circular shape
+                            backgroundColor: Colors.white,
+                            alignment: Alignment.center, // Button color
+                          ),
+                        ))
                   ],
                 ),
               ),
@@ -203,13 +319,54 @@ class CatalogTwo extends StatelessWidget {
               child: Container(
                 height: 300,
                 width: 160,
-                child: const Stack(
+                child: Stack(
                   children: [
-                    ProductCard(
+                    const ProductCard(
                       image: 'assets/images/wine_collar_polo.webp',
                       title: 'Evening dress',
                       price: 29.99,
                     ),
+                    Positioned(
+                      top: 10,
+                      left: 10,
+                      child: Container(
+                        width: 60, // Adjust width as needed
+                        height: 30, // Adjust height as needed
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFDB3022),
+                          borderRadius: BorderRadius.circular(
+                              20), // Adjust border radius as needed
+                        ),
+                        child: const Center(
+                          child: Text(
+                            '-20%', // Your discount text
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight
+                                    .bold // Adjust font size as needed
+                                ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                        top: 170,
+                        left: 120,
+                        child: ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: const Icon(Icons.favorite_border_outlined,
+                              color: Color.fromARGB(255, 141, 138, 138),
+                              size: 17), // Icon widget
+                          label: const Text(''), // Empty Text widget
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.fromLTRB(
+                                12, 5, 5, 5), // Adjust padding as needed
+                            shape: const CircleBorder(), // Circular shape
+                            backgroundColor: Colors.white,
+                            alignment: Alignment.center, // Button color
+                          ),
+                        ))
                   ],
                 ),
               ),
@@ -219,13 +376,30 @@ class CatalogTwo extends StatelessWidget {
               child: Container(
                 height: 300,
                 width: 160,
-                child: const Stack(
+                child: Stack(
                   children: [
-                    ProductCard(
+                    const ProductCard(
                       image: 'assets/images/wine_collar_polo.webp',
                       title: 'Evening dress',
                       price: 29.99,
                     ),
+                    Positioned(
+                        top: 170,
+                        left: 120,
+                        child: ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: const Icon(Icons.favorite_border_outlined,
+                              color: Color.fromARGB(255, 141, 138, 138),
+                              size: 17), // Icon widget
+                          label: const Text(''), // Empty Text widget
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.fromLTRB(
+                                12, 5, 5, 5), // Adjust padding as needed
+                            shape: const CircleBorder(), // Circular shape
+                            backgroundColor: Colors.white,
+                            alignment: Alignment.center, // Button color
+                          ),
+                        ))
                   ],
                 ),
               ),
@@ -272,3 +446,5 @@ class CatalogTwo extends StatelessWidget {
     );
   }
 }
+
+
