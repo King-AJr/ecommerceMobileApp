@@ -38,6 +38,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.10+1
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +81,27 @@ flutter:
     - family: Adamina
       fonts:
         - asset: assets/fonts/Adamina-Regular.ttf
+    - family: Metropolis-light
+      fonts:
+        - asset: assets/fonts/Metropolis-Light.otf
+    - family: Metropolis-extralight
+      fonts:
+        - asset: assets/fonts/Metropolis-ExtraLight.otf
+    - family: Metropolis-thin
+      fonts:
+        - asset: assets/fonts/Metropolis-Thin.otf
+    - family: Metropolis-bold
+      fonts:
+        - asset: assets/fonts/Metropolis-Bold.otf
+    - family: Metropolis-extrabold
+      fonts:
+        - asset: assets/fonts/Metropolis-ExtraBold.otf
+    - family: Metropolis-semibold
+      fonts:
+        - asset: assets/fonts/Metropolis-SemiBold.otf
+    - family: Metropolis-medium
+      fonts:
+        - asset: assets/fonts/Metropolis-Medium.otf
   #      
   #
   # For details regarding fonts from package dependencies,
