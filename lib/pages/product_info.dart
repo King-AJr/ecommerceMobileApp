@@ -367,7 +367,7 @@ class _ProductInfoState extends State<ProductInfo> {
       bottomNavigationBar: SizedBox(
         width: double.infinity,
         child: Card(
-            elevation: 1,
+            elevation: 0.5,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
             color: Colors.white,
