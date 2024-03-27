@@ -8,7 +8,6 @@ class BrandList extends StatefulWidget {
 }
 
 class _BrandListState extends State<BrandList> {
-  bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,11 +36,11 @@ class _BrandListState extends State<BrandList> {
                 ),
               ),
               const Padding(
-                padding: const EdgeInsets.fromLTRB(7, 10, 0, 0),
+                padding: EdgeInsets.fromLTRB(7, 10, 0, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("adidas",
+                    Text("adidas",
                         style: TextStyle(
                             fontSize: 20, fontFamily: "Metropolis-light")),
                     Checkbox(
@@ -72,11 +71,11 @@ class _BrandListState extends State<BrandList> {
                 ),
               ),
               const Padding(
-                padding: const EdgeInsets.fromLTRB(7, 10, 0, 0),
+                padding: EdgeInsets.fromLTRB(7, 10, 0, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Blend",
+                    Text("Blend",
                         style: TextStyle(
                             fontSize: 20, fontFamily: "Metropolis-light")),
                     Checkbox(
@@ -107,11 +106,11 @@ class _BrandListState extends State<BrandList> {
                 ),
               ),
               const Padding(
-                padding: const EdgeInsets.fromLTRB(7, 10, 0, 0),
+                padding: EdgeInsets.fromLTRB(7, 10, 0, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Champion",
+                    Text("Champion",
                         style: TextStyle(
                             fontSize: 20, fontFamily: "Metropolis-light")),
                     Checkbox(
@@ -142,11 +141,11 @@ class _BrandListState extends State<BrandList> {
                 ),
               ),
               const Padding(
-                padding: const EdgeInsets.fromLTRB(7, 10, 0, 0),
+                padding: EdgeInsets.fromLTRB(7, 10, 0, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Jack & Jones",
+                    Text("Jack & Jones",
                         style: TextStyle(
                             fontSize: 20, fontFamily: "Metropolis-light")),
                     Checkbox(
@@ -177,11 +176,11 @@ class _BrandListState extends State<BrandList> {
                 ),
               ),
               const Padding(
-                padding: const EdgeInsets.fromLTRB(7, 10, 0, 0),
+                padding: EdgeInsets.fromLTRB(7, 10, 0, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Red Valentino",
+                    Text("Red Valentino",
                         style: TextStyle(
                             fontSize: 20, fontFamily: "Metropolis-light")),
                     Checkbox(

@@ -99,7 +99,7 @@ flutter:
     - family: Metropolis-semibold
       fonts:
         - asset: assets/fonts/Metropolis-SemiBold.otf
-    - family: Metropolis-medium
+    - family: Metropolis-regular
       fonts:
         - asset: assets/fonts/Metropolis-Medium.otf
   #      
