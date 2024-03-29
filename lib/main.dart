@@ -3,6 +3,7 @@ import 'package:ecommerce_app/pages/catalog_one.dart';
 import 'package:ecommerce_app/pages/catalog_two.dart';
 import 'package:ecommerce_app/pages/categories.dart';
 import 'package:ecommerce_app/pages/category_two.dart';
+import 'package:ecommerce_app/pages/favorites_list.dart';
 import 'package:ecommerce_app/pages/filters.dart';
 import 'package:ecommerce_app/pages/finding_results.dart';
 import 'package:ecommerce_app/pages/forgot_password.dart';
@@ -20,7 +21,7 @@ import 'package:ecommerce_app/pages/sign_up.dart';
 void main() {
   runApp(
     MaterialApp(
-      initialRoute: '/ratings_and_reviews',
+      initialRoute: '/favorite_list',
       routes: {
         '/': (context) => const SignUpPage(),
         '/login': (context) => const LoginPage(),
@@ -38,7 +39,8 @@ void main() {
         '/filter_page': (context) => const FilterPage(),
         '/brand_list': (context) => const BrandList(),
         '/product_info': (context) => const ProductInfo(),
-        '/ratings_and_reviews': (context) => const RatingsAndReview()
+        '/ratings_and_reviews': (context) => const RatingsAndReview(),
+        '/favorite_list': (context) => const FavoriteList()
       },
     ),
   );
