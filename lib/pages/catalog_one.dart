@@ -36,6 +36,7 @@ class CatalogOne extends StatelessWidget {
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
+                              elevation: 0.2,
                               backgroundColor: const Color(0xFF222222),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.0),
@@ -52,6 +53,7 @@ class CatalogOne extends StatelessWidget {
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
+                              elevation: 0.2,
                               backgroundColor: const Color(0xFF222222),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.0),
@@ -68,6 +70,7 @@ class CatalogOne extends StatelessWidget {
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
+                              elevation: 0.2,
                               backgroundColor: const Color(0xFF222222),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.0),
@@ -84,6 +87,7 @@ class CatalogOne extends StatelessWidget {
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
+                              elevation: 0.2,
                               backgroundColor: const Color(0xFF222222),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.0),
@@ -102,7 +106,9 @@ class CatalogOne extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   TextButton.icon(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/filter_page");
+                      },
                       icon: const Icon(Icons.filter_list_outlined,
                           size: 25, color: Colors.black),
                       label: const Text("Filters",
@@ -128,146 +134,155 @@ class CatalogOne extends StatelessWidget {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-          child: Column(
-        children: [
-          Stack(
-            children: [
-              const CatalogCard(
-                  name: "Pullover",
-                  brand: "Mango",
-                  price: 54,
-                  imageUrl: 'assets/images/cat_image2.png'),
-              Positioned(
-                  top: 95,
-                  left: 325,
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_outlined,
-                        color: Color.fromARGB(255, 141, 138, 138),
-                        size: 17), // Icon widget
-                    label: const Text(''), // Empty Text widget
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(
-                          12, 5, 5, 5), // Adjust padding as needed
-                      shape: const CircleBorder(), // Circular shape
-                      backgroundColor: Colors.white,
-                      alignment: Alignment.center, // Button color
-                    ),
-                  ))
-            ],
-          ),
-          Stack(
-            children: [
-              const CatalogCard(
-                  name: "Pullover",
-                  brand: "Mango",
-                  price: 54,
-                  imageUrl: 'assets/images/cat_image2.png'),
-              Positioned(
-                  top: 95,
-                  left: 325,
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_outlined,
-                        color: Color.fromARGB(255, 141, 138, 138),
-                        size: 17), // Icon widget
-                    label: const Text(''), // Empty Text widget
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(
-                          12, 5, 5, 5), // Adjust padding as needed
-                      shape: const CircleBorder(), // Circular shape
-                      backgroundColor: Colors.white,
-                      alignment: Alignment.center, // Button color
-                    ),
-                  ))
-            ],
-          ),
-          Stack(
-            children: [
-              const CatalogCard(
-                  name: "Shirt",
-                  brand: "Topshop",
-                  price: 24,
-                  imageUrl: 'assets/images/cat_image2.png'),
-              Positioned(
-                  top: 95,
-                  left: 325,
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_outlined,
-                        color: Color.fromARGB(255, 141, 138, 138),
-                        size: 17), // Icon widget
-                    label: const Text(''), // Empty Text widget
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(
-                          12, 5, 5, 5), // Adjust padding as needed
-                      shape: const CircleBorder(), // Circular shape
-                      backgroundColor: Colors.white,
-                      alignment: Alignment.center, // Button color
-                    ),
-                  ))
-            ],
-          ),
-          Stack(
-            children: [
-              const CatalogCard(
-                  name: "T-Shirt",
-                  brand: "LOST Ink",
-                  price: 30,
-                  imageUrl: 'assets/images/cat_image2.png'),
-              Positioned(
-                  top: 95,
-                  left: 325,
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_outlined,
-                        color: Color.fromARGB(255, 141, 138, 138),
-                        size: 17), // Icon widget
-                    label: const Text(''), // Empty Text widget
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(
-                          12, 5, 5, 5), // Adjust padding as needed
-                      shape: const CircleBorder(), // Circular shape
-                      backgroundColor: Colors.white,
-                      alignment: Alignment.center, // Button color
-                    ),
-                  ))
-            ],
-          ),
-          Stack(
-            children: [
-              const CatalogCard(
-                  name: "Blouse",
-                  brand: "Dorothy Perkins",
-                  price: 74,
-                  imageUrl: 'assets/images/cat_image2.png'),
-              Positioned(
-                  top: 95,
-                  left: 325,
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_outlined,
-                        color: Color.fromARGB(255, 141, 138, 138),
-                        size: 17), // Icon widget
-                    label: const Text(''), // Empty Text widget
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(
-                          12, 5, 5, 5), // Adjust padding as needed
-                      shape: const CircleBorder(), // Circular shape
-                      backgroundColor: Colors.white,
-                      alignment: Alignment.center, // Button color
-                    ),
-                  ))
-            ],
-          )
-        ],
-      )),
+      body: Container(
+        color: Colors.white,
+        padding: const EdgeInsets.all(15),
+        child: SingleChildScrollView(
+            child: Column(
+          children: [
+            Stack(
+              children: [
+                const CatalogCard(
+                    name: "Pullover",
+                    brand: "Mango",
+                    price: 54,
+                    imageUrl: 'assets/images/cat_image2.png'),
+                Positioned(
+                    top: 85,
+                    left: 310,
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.favorite_border_outlined,
+                          color: Color.fromARGB(255, 141, 138, 138),
+                          size: 17), // Icon widget
+                      label: const Text(''), // Empty Text widget
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0.2,
+                        padding: const EdgeInsets.fromLTRB(
+                            12, 5, 5, 5), // Adjust padding as needed
+                        shape: const CircleBorder(), // Circular shape
+                        backgroundColor: Colors.white,
+                        alignment: Alignment.center, // Button color
+                      ),
+                    ))
+              ],
+            ),
+            Stack(
+              children: [
+                const CatalogCard(
+                    name: "Pullover",
+                    brand: "Mango",
+                    price: 54,
+                    imageUrl: 'assets/images/cat_image2.png'),
+                Positioned(
+                    top: 85,
+                    left: 310,
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.favorite_border_outlined,
+                          color: Color.fromARGB(255, 141, 138, 138),
+                          size: 17), // Icon widget
+                      label: const Text(''), // Empty Text widget
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0.2,
+                        padding: const EdgeInsets.fromLTRB(
+                            12, 5, 5, 5), // Adjust padding as needed
+                        shape: const CircleBorder(), // Circular shape
+                        backgroundColor: Colors.white,
+                        alignment: Alignment.center, // Button color
+                      ),
+                    ))
+              ],
+            ),
+            Stack(
+              children: [
+                const CatalogCard(
+                    name: "Shirt",
+                    brand: "Topshop",
+                    price: 24,
+                    imageUrl: 'assets/images/cat_image2.png'),
+                Positioned(
+                    top: 85,
+                    left: 310,
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.favorite_border_outlined,
+                          color: Color.fromARGB(255, 141, 138, 138),
+                          size: 17), // Icon widget
+                      label: const Text(''), // Empty Text widget
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0.2,
+                        padding: const EdgeInsets.fromLTRB(
+                            12, 5, 5, 5), // Adjust padding as needed
+                        shape: const CircleBorder(), // Circular shape
+                        backgroundColor: Colors.white,
+                        alignment: Alignment.center, // Button color
+                      ),
+                    ))
+              ],
+            ),
+            Stack(
+              children: [
+                const CatalogCard(
+                    name: "T-Shirt",
+                    brand: "LOST Ink",
+                    price: 30,
+                    imageUrl: 'assets/images/cat_image2.png'),
+                Positioned(
+                    top: 85,
+                    left: 310,
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.favorite_border_outlined,
+                          color: Color.fromARGB(255, 141, 138, 138),
+                          size: 17), // Icon widget
+                      label: const Text(''), // Empty Text widget
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0.2,
+                        padding: const EdgeInsets.fromLTRB(
+                            12, 5, 5, 5), // Adjust padding as needed
+                        shape: const CircleBorder(), // Circular shape
+                        backgroundColor: Colors.white,
+                        alignment: Alignment.center, // Button color
+                      ),
+                    ))
+              ],
+            ),
+            Stack(
+              children: [
+                const CatalogCard(
+                    name: "Blouse",
+                    brand: "Dorothy Perkins",
+                    price: 74,
+                    imageUrl: 'assets/images/cat_image2.png'),
+                Positioned(
+                    top: 85,
+                    left: 310,
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.favorite_border_outlined,
+                          color: Color.fromARGB(255, 141, 138, 138),
+                          size: 17), // Icon widget
+                      label: const Text(''), // Empty Text widget
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0.2,
+                        padding: const EdgeInsets.fromLTRB(
+                            12, 5, 5, 5), // Adjust padding as needed
+                        shape: const CircleBorder(), // Circular shape
+                        backgroundColor: Colors.white,
+                        alignment: Alignment.center, // Button color
+                      ),
+                    ))
+              ],
+            )
+          ],
+        )),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         selectedItemColor: const Color(0xFFDB3022),
         unselectedItemColor: Colors.black,
-        currentIndex: 0,
+        currentIndex: 1,
         iconSize: 30,
         selectedFontSize: 14,
         unselectedFontSize: 14,
@@ -276,25 +291,45 @@ class CatalogOne extends StatelessWidget {
         onTap: (int index) {
           // Handle tab selection here
         },
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/main_page');
+                },
+                icon: const Icon(Icons.home)),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
-            label: 'Cart',
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/categories');
+                },
+                icon: const Icon(Icons.shopping_cart_outlined)),
+            label: 'Shop',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/my_bag');
+                },
+                icon: const Icon(Icons.shopping_bag)),
             label: 'Bag',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/favorite_list');
+                },
+                icon: const Icon(Icons.favorite_border_outlined)),
             label: 'Favorites',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_2_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+                icon: const Icon(Icons.person_2_outlined)),
             label: 'Profile',
           ),
         ],

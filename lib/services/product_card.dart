@@ -16,83 +16,88 @@ class ProductCard extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // width: MediaQuery.of(context).size.width * 0.45,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Container(
-              decoration: const BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 0,
-                    color: Color(0x3600000F),
-                    offset: Offset(0, 2),
-                  )
-                ],
-                borderRadius: BorderRadius.all(
-                  Radius.circular(8),
-                ),
-              ),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(8),
-                ),
-                child: AspectRatio(
-                  aspectRatio: 3.5 / 4, // 2:3 aspect ratio (two-thirds)
-                  child: Image.asset(
-                    image,
-                    fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/product_info');
+      },
+      child: Container(
+        // width: MediaQuery.of(context).size.width * 0.45,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                decoration: const BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 0,
+                      color: Color(0x3600000F),
+                      offset: Offset(0, 2),
+                    )
+                  ],
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(8),
                   ),
                 ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            const Row(
-              children: [
-                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
-                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
-                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
-                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
-                Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
-                Text('(10)')
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
-                    child: Text(
-                      title,
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(8),
+                  ),
+                  child: AspectRatio(
+                    aspectRatio: 3.5 / 4, // 2:3 aspect ratio (two-thirds)
+                    child: Image.asset(
+                      image,
+                      fit: BoxFit.cover,
                     ),
                   ),
-                ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
+              const SizedBox(height: 10),
+              const Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
-                    child: Text(
-                      '\$$price',
-                    ),
-                  ),
+                  Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                  Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                  Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                  Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                  Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
+                  Text('(10)')
                 ],
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
+                      child: Text(
+                        title,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
+                      child: Text(
+                        '\$$price',
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

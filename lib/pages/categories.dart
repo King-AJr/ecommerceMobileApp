@@ -14,94 +14,99 @@ class Categories extends StatelessWidget {
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
         ],
       ),
-      body: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Women',
-                    style: TextStyle(color: Color(0xFF222222), fontSize: 16),
+      body: Container(
+        color: Colors.white,
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Women',
+                      style: TextStyle(color: Color(0xFF222222), fontSize: 16),
+                    ),
                   ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Men',
-                    style: TextStyle(color: Color(0xFF222222), fontSize: 16),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Men',
+                      style: TextStyle(color: Color(0xFF222222), fontSize: 16),
+                    ),
                   ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Kids',
-                    style: TextStyle(color: Color(0xFF222222), fontSize: 16),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Kids',
+                      style: TextStyle(color: Color(0xFF222222), fontSize: 16),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.all(11),
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: const Color(0xFFDB3022),
-                ),
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "SUMMER SALES",
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
+                child: Container(
+                  // padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color(0xFFDB3022),
+                  ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "SUMMER SALES",
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Text(
-                      "Up to 50% off",
-                      style: TextStyle(fontSize: 14, color: Colors.white),
-                    ),
-                  ],
+                      Text(
+                        "Up to 50% off",
+                        style: TextStyle(fontSize: 14, color: Colors.white),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-          const Expanded(
-            flex: 1,
-            child: CategoryCard(
-                text: "New", imageUrl: 'assets/images/cat_image1.png'),
-          ),
-          const Expanded(
-            flex: 1,
-            child: CategoryCard(
-                text: "Clothes", imageUrl: 'assets/images/cat_image2.png'),
-          ),
-          const Expanded(
-            flex: 1,
-            child: CategoryCard(
-                text: "Shoes", imageUrl: 'assets/images/cat_image3.png'),
-          ),
-          const Expanded(
-            flex: 1,
-            child: CategoryCard(
-                text: "Accessories", imageUrl: 'assets/images/cat_image4.png'),
-          ),
-        ],
+            const Expanded(
+              flex: 1,
+              child: CategoryCard(
+                  text: "New", imageUrl: 'assets/images/cat_image1.png'),
+            ),
+            const Expanded(
+              flex: 1,
+              child: CategoryCard(
+                  text: "Clothes", imageUrl: 'assets/images/cat_image2.png'),
+            ),
+            const Expanded(
+              flex: 1,
+              child: CategoryCard(
+                  text: "Shoes", imageUrl: 'assets/images/cat_image3.png'),
+            ),
+            const Expanded(
+              flex: 1,
+              child: CategoryCard(
+                  text: "Accessories",
+                  imageUrl: 'assets/images/cat_image4.png'),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         selectedItemColor: const Color(0xFFDB3022),
         unselectedItemColor: Colors.black,
-        currentIndex: 0,
+        currentIndex: 1,
         iconSize: 30,
         selectedFontSize: 14,
         unselectedFontSize: 14,
@@ -110,25 +115,45 @@ class Categories extends StatelessWidget {
         onTap: (int index) {
           // Handle tab selection here
         },
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/main_page');
+                },
+                icon: const Icon(Icons.home)),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/category_two');
+                },
+                icon: const Icon(Icons.shopping_cart)),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/my_bag');
+                },
+                icon: const Icon(Icons.shopping_bag_outlined)),
             label: 'Bag',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/favorites_list');
+                },
+                icon: const Icon(Icons.favorite_border_outlined)),
             label: 'Favorites',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_2_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+                icon: const Icon(Icons.person_2_outlined)),
             label: 'Profile',
           ),
         ],

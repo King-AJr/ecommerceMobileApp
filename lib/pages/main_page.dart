@@ -83,9 +83,15 @@ class MainPage extends StatelessWidget {
                                       color: Color(0xFF9B9B9B)))
                             ]),
                       ),
-                      const Text('View all',
-                          style: TextStyle(
-                              fontSize: 11, fontFamily: "Metropolis-regular")),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/categories');
+                        },
+                        child: const Text('View all',
+                            style: TextStyle(
+                                fontSize: 11,
+                                fontFamily: "Metropolis-regular")),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 10),
@@ -214,27 +220,50 @@ class MainPage extends StatelessWidget {
         iconSize: 30,
         selectedFontSize: 14,
         unselectedFontSize: 14,
-        showUnselectedLabels: true,
-        onTap: (int index) {},
-        items: const [
+        showUnselectedLabels:
+            true, // Change this according to the current tab index
+        onTap: (int index) {
+          // Handle tab selection here
+        },
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/main_page_two');
+                },
+                icon: const Icon(Icons.home)),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/categories');
+                },
+                icon: const Icon(Icons.shopping_cart_outlined)),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/my_bag');
+                },
+                icon: const Icon(Icons.shopping_bag_outlined)),
             label: 'Bag',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/favorite_list');
+                },
+                icon: const Icon(Icons.favorite_border_outlined)),
             label: 'Favorites',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_2_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+                icon: const Icon(Icons.person_2_outlined)),
             label: 'Profile',
           ),
         ],

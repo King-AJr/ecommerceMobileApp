@@ -279,7 +279,6 @@ class Profile extends StatelessWidget {
             ],
           )),
       bottomNavigationBar: BottomNavigationBar(
-        elevation: 0.1,
         backgroundColor: Colors.white,
         selectedItemColor: const Color(0xFFDB3022),
         unselectedItemColor: Colors.black,
@@ -292,25 +291,45 @@ class Profile extends StatelessWidget {
         onTap: (int index) {
           // Handle tab selection here
         },
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/main_page');
+                },
+                icon: const Icon(Icons.home)),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/categories');
+                },
+                icon: const Icon(Icons.shopping_cart_outlined)),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/my_bag');
+                },
+                icon: const Icon(Icons.shopping_bag_outlined)),
             label: 'Bag',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/favorites_list');
+                },
+                icon: const Icon(Icons.favorite_border_outlined)),
             label: 'Favorites',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_2),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+                icon: const Icon(Icons.person_2)),
             label: 'Profile',
           ),
         ],

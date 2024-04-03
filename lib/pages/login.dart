@@ -78,14 +78,21 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text(
+                        const Text(
                           "Forgot your password",
                           style: TextStyle(color: Colors.black),
                         ),
-                        Icon(Icons.arrow_right_alt, color: Color(0xFFDB3022)),
+                        IconButton(
+                            padding: const EdgeInsets.all(0),
+                            alignment: AlignmentDirectional.centerStart,
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/forgot_password');
+                            },
+                            icon: const Icon(Icons.arrow_right_alt),
+                            color: const Color(0xFFDB3022)),
                       ],
                     ),
                     Container(

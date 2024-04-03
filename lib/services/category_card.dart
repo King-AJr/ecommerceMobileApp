@@ -9,57 +9,63 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(11),
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, "/catalog_one");
+      },
       child: Container(
-        height: 130,
+        padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
+        //height: 150,
         width: double.infinity,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(10),
           color: const Color(0xFFFFFFFF),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16),
-                child: Text(
-                  text, // Use the provided text variable here
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+        child: Card(
+          elevation: 0.1,
+          color: Colors.white,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Text(
+                    text, // Use the provided text variable here
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                width: 100, // Adjust width as needed
-                height: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    bottomRight: Radius.circular(15.0),
-                    topRight: Radius.circular(15.0),
-                  ),
-                  image: DecorationImage(
-                    image: AssetImage(imageUrl), // Use imageUrl here
-                    fit: BoxFit.cover,
+              Expanded(
+                flex: 1,
+                child: Container(
+                  width: 100, // Adjust width as needed
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      bottomRight: Radius.circular(10.0),
+                      topRight: Radius.circular(10.0),
+                    ),
+                    image: DecorationImage(
+                      image: AssetImage(imageUrl), // Use imageUrl here
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
 
 class CategoryItem extends StatelessWidget {
   final String name;

@@ -63,7 +63,9 @@ class ForgotPasswordPage extends StatelessWidget {
                         width: double.infinity,
                         margin: const EdgeInsets.symmetric(vertical: 30),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/main_page');
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFDB3022),
                           ),

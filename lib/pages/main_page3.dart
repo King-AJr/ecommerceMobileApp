@@ -163,7 +163,7 @@ class MainPageThree extends StatelessWidget {
         backgroundColor: Colors.white,
         selectedItemColor: const Color(0xFFDB3022),
         unselectedItemColor: Colors.black,
-        currentIndex: 2,
+        currentIndex: 0,
         iconSize: 30,
         selectedFontSize: 14,
         unselectedFontSize: 14,
@@ -182,19 +182,35 @@ class MainPageThree extends StatelessWidget {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/categories');
+                },
+                icon: const Icon(Icons.shopping_cart_outlined)),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/my_bag');
+                },
+                icon: const Icon(Icons.shopping_bag_outlined)),
             label: 'Bag',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/favorites_list');
+                },
+                icon: const Icon(Icons.favorite_border_outlined)),
             label: 'Favorites',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_2_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+                icon: const Icon(Icons.person_2_outlined)),
             label: 'Profile',
           ),
         ],

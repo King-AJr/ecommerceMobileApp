@@ -377,7 +377,9 @@ class _ProductInfoState extends State<ProductInfo> {
                 width: double.infinity,
                 height: 60,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/my_bag');
+                  },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFDB3022),
                       shape: RoundedRectangleBorder(

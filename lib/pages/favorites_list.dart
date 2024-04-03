@@ -282,10 +282,10 @@ class FavoriteList extends StatelessWidget {
         ],
       )),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xFFDB3022),
+        backgroundColor: Colors.white,
         selectedItemColor: const Color(0xFFDB3022),
         unselectedItemColor: Colors.black,
-        currentIndex: 0,
+        currentIndex: 3,
         iconSize: 30,
         selectedFontSize: 14,
         unselectedFontSize: 14,
@@ -294,25 +294,45 @@ class FavoriteList extends StatelessWidget {
         onTap: (int index) {
           // Handle tab selection here
         },
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/main_page');
+                },
+                icon: const Icon(Icons.home)),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/categories');
+                },
+                icon: const Icon(Icons.shopping_cart_outlined)),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/my_bag');
+                },
+                icon: const Icon(Icons.shopping_bag_outlined)),
             label: 'Bag',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/favorites_grid');
+                },
+                icon: const Icon(Icons.favorite)),
             label: 'Favorites',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_2_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+                icon: const Icon(Icons.person_2_outlined)),
             label: 'Profile',
           ),
         ],
