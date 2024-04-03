@@ -21,7 +21,10 @@ class FavoriteList extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(15, 5, 0, 0),
                 child: Text(
                   "Favorites",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 34,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Metropolis-bold"),
                 ),
               ),
               SingleChildScrollView(
@@ -137,6 +140,7 @@ class FavoriteList extends StatelessWidget {
                   name: "Pullover",
                   brand: "Mango",
                   size: "L",
+                  starRating: 3,
                   color: "Black",
                   price: 54,
                   imageUrl: 'assets/images/cat_image2.png'),
@@ -165,6 +169,7 @@ class FavoriteList extends StatelessWidget {
                   name: "Pullover",
                   brand: "Mango",
                   size: "L",
+                  starRating: 4,
                   color: "Black",
                   price: 54,
                   imageUrl: 'assets/images/cat_image2.png'),
@@ -193,6 +198,7 @@ class FavoriteList extends StatelessWidget {
                   name: "Shirt",
                   brand: "Topshop",
                   size: "L",
+                  starRating: 2,
                   color: "Black",
                   price: 24,
                   imageUrl: 'assets/images/cat_image2.png'),
@@ -222,6 +228,7 @@ class FavoriteList extends StatelessWidget {
                   brand: "LOST Ink",
                   color: "Black",
                   size: "L",
+                  starRating: 2,
                   price: 30,
                   imageUrl: 'assets/images/cat_image2.png'),
               Positioned(
@@ -250,6 +257,7 @@ class FavoriteList extends StatelessWidget {
                   brand: "Dorothy Perkins",
                   color: "Black",
                   size: "L",
+                  starRating: 5,
                   price: 74,
                   imageUrl: 'assets/images/cat_image2.png'),
               Positioned(

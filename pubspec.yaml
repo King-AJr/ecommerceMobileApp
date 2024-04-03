@@ -101,7 +101,13 @@ flutter:
         - asset: assets/fonts/Metropolis-SemiBold.otf
     - family: Metropolis-regular
       fonts:
+        - asset: assets/fonts/Metropolis-Regular.otf
+    - family: Metropolis-medium
+      fonts:
         - asset: assets/fonts/Metropolis-Medium.otf
+    - family: Metropolis-black
+      fonts:
+        - asset: assets/fonts/Metropolis-Black.otf
   #      
   #
   # For details regarding fonts from package dependencies,

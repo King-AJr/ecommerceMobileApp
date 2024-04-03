@@ -16,7 +16,7 @@ class ImageCardButton extends StatelessWidget {
       onTap: onPressed,
       child: Card(
         color: Colors.white,
-        elevation: 4, // Adjust elevation for shadow effect
+        elevation: 0.1, // Adjust elevation for shadow effect
         shape: RoundedRectangleBorder(
           borderRadius:
               BorderRadius.circular(10.0), // Adjust card border radius
@@ -25,7 +25,7 @@ class ImageCardButton extends StatelessWidget {
           padding: const EdgeInsets.all(8.0), // Adjust padding as needed
           child: Image.asset(
             imagePath,
-            fit: BoxFit.cover, // Adjust image fit
+            fit: BoxFit.contain, // Adjust image fit
           ),
         ),
       ),

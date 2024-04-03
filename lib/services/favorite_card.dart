@@ -6,6 +6,7 @@ class FavoriteCard extends StatelessWidget {
   final int price;
   final String imageUrl;
   final String color;
+  final int starRating;
   final String size;
   const FavoriteCard(
       {Key? key,
@@ -14,6 +15,7 @@ class FavoriteCard extends StatelessWidget {
       required this.price,
       required this.color,
       required this.size,
+      required this.starRating,
       required this.imageUrl})
       : super(key: key);
 
@@ -39,8 +41,8 @@ class FavoriteCard extends StatelessWidget {
                 height: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
-                    bottomRight: Radius.circular(0.0),
-                    topRight: Radius.circular(0.0),
+                    bottomLeft: Radius.circular(10.0),
+                    topLeft: Radius.circular(10.0),
                   ),
                   image: DecorationImage(
                     image: AssetImage(imageUrl),
@@ -105,21 +107,25 @@ class FavoriteCard extends StatelessWidget {
                               fontSize: 14,
                               fontFamily: "Metropolis-semibold",
                             )),
-                        const Padding(
-                          padding: EdgeInsets.fromLTRB(75, 0, 0, 0),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(75, 0, 0, 0),
                           child: Row(
                             children: [
-                              Icon(Icons.star,
-                                  color: Color(0xFFFFBA49), size: 18),
-                              Icon(Icons.star,
-                                  color: Color(0xFFFFBA49), size: 18),
-                              Icon(Icons.star,
-                                  color: Color(0xFFFFBA49), size: 18),
-                              Icon(Icons.star,
-                                  color: Color(0xFFFFBA49), size: 18),
-                              Icon(Icons.star,
-                                  color: Color(0xFFFFBA49), size: 18),
-                              Text('(10)',
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: List.generate(5, (index) {
+                                  return Icon(
+                                    index < starRating
+                                        ? Icons.star
+                                        : Icons.star_border_rounded,
+                                    color: index < starRating
+                                        ? const Color(0xFFFFBA49)
+                                        : const Color(0XFF9B9B9B),
+                                    size: 18,
+                                  );
+                                }),
+                              ),
+                              const Text('(10)',
                                   style: TextStyle(
                                       fontFamily: "Metropolis-thin",
                                       fontSize: 12))

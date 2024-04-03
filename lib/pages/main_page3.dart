@@ -163,7 +163,7 @@ class MainPageThree extends StatelessWidget {
         backgroundColor: Colors.white,
         selectedItemColor: const Color(0xFFDB3022),
         unselectedItemColor: Colors.black,
-        currentIndex: 0,
+        currentIndex: 2,
         iconSize: 30,
         selectedFontSize: 14,
         unselectedFontSize: 14,
@@ -172,9 +172,13 @@ class MainPageThree extends StatelessWidget {
         onTap: (int index) {
           // Handle tab selection here
         },
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/main_page');
+                },
+                icon: const Icon(Icons.home)),
             label: 'Home',
           ),
           BottomNavigationBarItem(
