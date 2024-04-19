@@ -52,51 +52,50 @@ class _MyBagState extends State<MyBag> {
                   price: 54,
                   imageUrl: 'assets/images/cat_image2.png'),
               Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 1,
-                          blurRadius: 5,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: <Widget>[
-                        const Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Enter your promo code',
-                              border: InputBorder.none,
-                              contentPadding:
-                                  EdgeInsets.symmetric(vertical: 14.0),
-                            ),
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 1,
+                        blurRadius: 5,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      const Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Enter your promo code',
+                            border: InputBorder.none,
+                            contentPadding:
+                                EdgeInsets.symmetric(vertical: 14.0),
                           ),
                         ),
-                        Container(
-                          alignment: Alignment.centerRight,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: IconButton(
-                            icon: const Icon(Icons.arrow_forward,
-                                color: Colors.white),
-                            onPressed: () {
-                              // Your code to handle the button press
-                            },
-                          ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(30.0),
                         ),
-                      ],
-                    ),
-                  )),
+                        child: IconButton(
+                          icon: const Icon(Icons.arrow_forward,
+                              color: Colors.white),
+                          onPressed: () {
+                            // Your code to handle the button press
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               const Padding(
                   padding: EdgeInsets.all(15),
                   child: Row(

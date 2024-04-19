@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/controllers/login.dart';
 import 'package:ecommerce_app/pages/adding_address.dart';
 import 'package:ecommerce_app/pages/brand_list.dart';
 import 'package:ecommerce_app/pages/catalog_one.dart';
@@ -10,7 +11,6 @@ import 'package:ecommerce_app/pages/favorites_list.dart';
 import 'package:ecommerce_app/pages/filters.dart';
 import 'package:ecommerce_app/pages/finding_results.dart';
 import 'package:ecommerce_app/pages/forgot_password.dart';
-import 'package:ecommerce_app/pages/login.dart';
 import 'package:ecommerce_app/pages/main_page.dart';
 import 'package:ecommerce_app/pages/main_page2.dart';
 import 'package:ecommerce_app/pages/main_page3.dart';
@@ -28,14 +28,18 @@ import 'package:ecommerce_app/pages/taking_a_photo.dart';
 import 'package:ecommerce_app/pages/visual_search.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/pages/sign_up.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
   runApp(
     MaterialApp(
       initialRoute: '/',
       routes: {
         '/': (context) => const SignUpPage(),
-        '/login': (context) => const LoginPage(),
+        '/login': (context) => const LoginController(),
         '/forgot_password': (context) => const ForgotPasswordPage(),
         '/visual_search': (context) => const VisualSearch(),
         '/take_photo': (context) => const TakePhoto(),
