@@ -1,9 +1,6 @@
 import 'package:ecommerce_app/common/widgets/image_button.dart';
 import "package:flutter/material.dart";
 
-
-import 'package:flutter/material.dart';
-
 class SocialSignUpWidget extends StatelessWidget {
   final String signUpText;
   final VoidCallback onGooglePressed;
@@ -20,10 +17,7 @@ class SocialSignUpWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          signUpText,
-          style: Theme.of(context).textTheme.labelMedium
-        ),
+        Text(signUpText, style: Theme.of(context).textTheme.labelMedium),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -31,7 +25,7 @@ class SocialSignUpWidget extends StatelessWidget {
               height: 60.0,
               width: 90.0,
               child: ImageCardButton(
-                imagePath: 'assets/images/google_logo.jpeg',
+                imagePath: 'assets/images/google_logo.png',
                 onPressed: onGooglePressed,
               ),
             ),
@@ -40,7 +34,7 @@ class SocialSignUpWidget extends StatelessWidget {
               height: 60.0,
               width: 90.0,
               child: ImageCardButton(
-                imagePath: 'assets/images/fb-logo.jpeg',
+                imagePath: 'assets/images/facebook_logo.png',
                 onPressed: onFacebookPressed,
               ),
             ),

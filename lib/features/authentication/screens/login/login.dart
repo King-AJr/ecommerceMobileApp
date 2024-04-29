@@ -1,3 +1,4 @@
+import "package:ecommerce_app/common/widgets/myAppBar.dart";
 import "package:ecommerce_app/common/widgets/socialMediaButtons.dart";
 import "package:ecommerce_app/features/authentication/screens/login/login_form.dart";
 import "package:ecommerce_app/util/constants/sizes.dart";
@@ -9,17 +10,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(Sizes.appBarHeight),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              alignment: AlignmentDirectional.bottomStart,
-              child:
-                  Text("Login", style: Theme.of(context).textTheme.titleLarge),
-            ),
-          ),
-        ),
+        appBar: MyAppBar(context, "Login"),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(Sizes.allRoundPadding),
@@ -27,7 +18,7 @@ class LoginScreen extends StatelessWidget {
               children: [
                 const LoginForm(),
                 const SizedBox(
-                  height: 110,
+                  height: 190,
                 ),
                 SocialSignUpWidget(
                   signUpText: "Or sign up with social account",

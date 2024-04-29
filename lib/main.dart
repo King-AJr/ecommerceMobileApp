@@ -2,6 +2,7 @@ import 'package:ecommerce_app/features/authentication/screens/forgot_password/fo
 import 'package:ecommerce_app/features/authentication/screens/login/login.dart';
 import 'package:ecommerce_app/features/authentication/screens/signup/signup.dart';
 import 'package:ecommerce_app/util/themes/custom_themes/text_theme.dart';
+import 'package:get/get.dart';
 import 'package:ecommerce_app/util/themes/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         title: 'My Flutter App',
         themeMode: ThemeMode.system,
         theme: MyAppTheme.lightTheme,

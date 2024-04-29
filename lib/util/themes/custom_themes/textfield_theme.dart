@@ -1,3 +1,4 @@
+import "package:ecommerce_app/util/constants/colors.dart";
 import "package:flutter/material.dart";
 
 class MyTextFieldTheme {
@@ -64,7 +65,7 @@ class MyTextFieldTheme {
     enabledBorder: const OutlineInputBorder().copyWith(
       borderSide: const BorderSide(
         width: 1,
-        color: Colors.white,
+        color: MyColors.colorDark,
       ),
     ),
     focusedBorder: const OutlineInputBorder().copyWith(

@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/util/constants/colors.dart';
+import 'package:ecommerce_app/util/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class ImageCardButton extends StatelessWidget {
@@ -12,10 +14,11 @@ class ImageCardButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final darkMode = MyHelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: onPressed,
       child: Card(
-        color: Colors.white,
+        color: darkMode ? MyColors.colorDark : Colors.white,
         elevation: 0.1, // Adjust elevation for shadow effect
         shape: RoundedRectangleBorder(
           borderRadius:

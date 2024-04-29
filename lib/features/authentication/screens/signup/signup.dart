@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/common/widgets/myAppBar.dart';
 import 'package:ecommerce_app/common/widgets/socialMediaButtons.dart';
 import 'package:ecommerce_app/features/authentication/screens/signup/signup_form.dart';
 import 'package:ecommerce_app/util/constants/sizes.dart';
@@ -11,17 +12,7 @@ class SignupScreen extends StatelessWidget {
     //final dark = MyHelperFunctions.isDarkMode(context);
 
     return Scaffold(
-      appBar: AppBar(
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(Sizes.appBarHeight),
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            alignment: AlignmentDirectional.bottomStart,
-            child:
-                Text("Sign up", style: Theme.of(context).textTheme.titleLarge),
-          ),
-        ),
-      ),
+      appBar: MyAppBar(context, "Sign up"),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(Sizes.allRoundPadding),
@@ -29,7 +20,7 @@ class SignupScreen extends StatelessWidget {
             children: [
               const SignUpForm(),
               const SizedBox(
-                height: 60,
+                height: 100,
               ),
               SocialSignUpWidget(
                 signUpText: "Or sign up with social account",
