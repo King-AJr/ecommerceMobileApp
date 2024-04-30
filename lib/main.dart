@@ -2,6 +2,7 @@ import 'package:ecommerce_app/features/authentication/screens/forgot_password/fo
 import 'package:ecommerce_app/features/authentication/screens/login/login.dart';
 import 'package:ecommerce_app/features/authentication/screens/signup/signup.dart';
 import 'package:ecommerce_app/util/themes/custom_themes/text_theme.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:ecommerce_app/util/themes/theme.dart';
 import 'package:flutter/material.dart';

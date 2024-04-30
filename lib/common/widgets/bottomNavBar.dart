@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/shop/Categories/screens/category.dart';
 import 'package:ecommerce_app/features/home/screens/main_page.dart';
 import 'package:ecommerce_app/util/constants/colors.dart';
 import 'package:ecommerce_app/util/constants/sizes.dart';
@@ -48,9 +49,7 @@ class NavigationController extends GetxController {
 
   final screens = [
     MainPage(),
-    Container(
-      color: Colors.blue,
-    ),
+    const Categories(),
     Container(color: Colors.green),
     Container(
       color: Colors.blue,

@@ -50,6 +50,7 @@ class MainPage extends StatelessWidget {
               tagColor: product['tagColor'],
               tagText: product['tagText'],
               showTag: product['showTag'],
+              rating: product['rating']
             );
           }).toList(),
         ),

@@ -1,7 +1,8 @@
 import "package:ecommerce_app/util/constants/sizes.dart";
 import "package:flutter/material.dart";
 
-AppBar MyAppBar(BuildContext context, String title, {List<Widget> actions = const []}) {
+AppBar MyBottomAppBar(BuildContext context, String title,
+    {List<Widget> actions = const []}) {
   return AppBar(
     bottom: PreferredSize(
       preferredSize: const Size.fromHeight(Sizes.appBarHeight),
@@ -16,6 +17,11 @@ AppBar MyAppBar(BuildContext context, String title, {List<Widget> actions = cons
     ),
     actions: actions,
   );
+}
+
+AppBar MyAppBar(BuildContext context, Text title,
+    {List<Widget> actions = const []}) {
+  return AppBar(title: title, actions: actions);
 }
 
 

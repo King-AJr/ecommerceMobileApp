@@ -10,6 +10,7 @@ class ProductController extends GetxController {
       'price': 29.99,
       'tagColor': MyColors.primary,
       'tagText': '-20%',
+      'rating': 5.0,
       'showTag': true,
     },
     {
@@ -18,6 +19,7 @@ class ProductController extends GetxController {
       'price': 29.99,
       'tagColor': MyColors.primary,
       'tagText': '-20%',
+      'rating': 1.0,
       'showTag': true,
     },
     {
@@ -26,6 +28,7 @@ class ProductController extends GetxController {
       'price': 29.99,
       'tagColor': MyColors.primary,
       'tagText': '-20%',
+      'rating': 4.0,
       'showTag': true,
     },
     // Add more product data as needed
@@ -39,6 +42,7 @@ class ProductController extends GetxController {
       'price': 29.99,
       'tagColor': Colors.black,
       'tagText': 'NEW',
+      'rating': 5.0,
       'showTag': true,
     },
     {
@@ -47,6 +51,7 @@ class ProductController extends GetxController {
       'price': 29.99,
       'tagColor': Colors.black,
       'tagText': 'NEW',
+      'rating': 3.0,
       'showTag': true,
     },
     {
@@ -55,6 +60,7 @@ class ProductController extends GetxController {
       'price': 29.99,
       'tagColor': Colors.black,
       'tagText': 'NEW',
+      'rating': 4.0,
       'showTag': true,
     },
     // Add more product data as needed

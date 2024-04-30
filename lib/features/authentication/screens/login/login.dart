@@ -1,4 +1,4 @@
-import "package:ecommerce_app/common/widgets/myAppBar.dart";
+import "package:ecommerce_app/common/widgets/myAppBars.dart";
 import "package:ecommerce_app/common/widgets/socialMediaButtons.dart";
 import "package:ecommerce_app/features/authentication/screens/login/login_form.dart";
 import "package:ecommerce_app/util/constants/sizes.dart";
@@ -10,7 +10,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MyAppBar(context, "Login"),
+        appBar: MyBottomAppBar(context, "Login"),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(Sizes.allRoundPadding),

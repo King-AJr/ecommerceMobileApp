@@ -1,4 +1,4 @@
-import "package:ecommerce_app/common/widgets/myAppBar.dart";
+import "package:ecommerce_app/common/widgets/myAppBars.dart";
 import "package:ecommerce_app/features/authentication/screens/forgot_password/forgot_password_form.dart";
 import "package:flutter/material.dart";
 import "package:ecommerce_app/util/constants/sizes.dart";
@@ -9,7 +9,7 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MyAppBar(context, "Forgot Password"),
+        appBar: MyBottomAppBar(context, "Forgot Password"),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(Sizes.allRoundPadding),

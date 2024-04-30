@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/common/widgets/add_to_cart_icon.dart';
 import 'package:ecommerce_app/util/constants/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -5,6 +6,7 @@ class ProductCard extends StatelessWidget {
   final String image;
   final String title;
   final double price;
+  final double rating;
   final Color? tagColor;
   final String? tagText;
   final bool showTag;
@@ -14,6 +16,7 @@ class ProductCard extends StatelessWidget {
     required this.image,
     required this.title,
     required this.price,
+    required this.rating,
     this.tagColor,
     this.tagText,
     this.showTag = false,
@@ -22,6 +25,10 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final darkMode = Theme.of(context).brightness == Brightness.dark;
+
+    final int filledStars =
+        rating.floor(); // Number of filled stars (whole number)
+    final bool hasHalfStar = rating - filledStars >= 0.5; // Check for half star
 
     return Container(
       padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
@@ -67,15 +74,30 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Row(
-                    children: [
-                      Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
-                      Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
-                      Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
-                      Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
-                      Icon(Icons.star, color: Color(0xFFFFBA49), size: 18),
-                      Text('(10)')
-                    ],
+                  Row(
+                    children: List.generate(
+                      5,
+                      (index) {
+                        IconData iconData;
+                        Color starColor;
+
+                        if (index < filledStars) {
+                          // Full star
+                          iconData = Icons.star;
+                          starColor = const Color(0xFFFFBA49);
+                        } else if (index == filledStars && hasHalfStar) {
+                          // Half star
+                          iconData = Icons.star_half;
+                          starColor = const Color(0xFFFFBA49);
+                        } else {
+                          // Outline star
+                          iconData = Icons.star_border;
+                          starColor = Colors.grey;
+                        }
+
+                        return Icon(iconData, color: starColor, size: 18);
+                      },
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
@@ -138,30 +160,34 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
               ),
-            Positioned(
+            const Positioned(
               top: 160,
               left: 113,
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  // Handle button press
-                },
-                icon: const Icon(
-                  Icons.favorite_border_outlined,
-                  color: Color.fromARGB(255, 141, 138, 138),
-                  size: 17,
-                ),
-                label: const Text(''),
-                style: ElevatedButton.styleFrom(
-                  elevation: 0.2,
-                  padding: const EdgeInsets.fromLTRB(12, 5, 5, 5),
-                  shape: const CircleBorder(),
-                  backgroundColor: Colors.white,
-                ),
-              ),
+              child: AddToCartButton(),
             ),
           ],
         ),
       ),
     );
   }
+
+  // ElevatedButton addToCartIcon() {
+  //   return ElevatedButton.icon(
+  //             onPressed: () {
+  //               // Handle button press
+  //             },
+  //             icon: const Icon(
+  //               Icons.favorite_border_outlined,
+  //               color: Color.fromARGB(255, 141, 138, 138),
+  //               size: 17,
+  //             ),
+  //             label: const Text(''),
+  //             style: ElevatedButton.styleFrom(
+  //               elevation: 0.2,
+  //               padding: const EdgeInsets.fromLTRB(12, 5, 5, 5),
+  //               shape: const CircleBorder(),
+  //               backgroundColor: Colors.white,
+  //             ),
+  //           );
+  // }
 }

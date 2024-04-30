@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/common/widgets/myAppBar.dart';
+import 'package:ecommerce_app/common/widgets/myAppBars.dart';
 import 'package:ecommerce_app/common/widgets/socialMediaButtons.dart';
 import 'package:ecommerce_app/features/authentication/screens/signup/signup_form.dart';
 import 'package:ecommerce_app/util/constants/sizes.dart';
@@ -12,7 +12,7 @@ class SignupScreen extends StatelessWidget {
     //final dark = MyHelperFunctions.isDarkMode(context);
 
     return Scaffold(
-      appBar: MyAppBar(context, "Sign up"),
+      appBar: MyBottomAppBar(context, "Sign up"),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(Sizes.allRoundPadding),

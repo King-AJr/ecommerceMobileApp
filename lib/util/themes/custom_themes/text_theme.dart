@@ -4,6 +4,11 @@ class MyTextTheme {
   MyTextTheme._();
 
   static TextTheme lightTextTheme = TextTheme(
+    displaySmall: const TextStyle().copyWith(
+      fontSize: 14,
+      fontFamily: "Metropolis-medium",
+      color: const Color(0xFF222222),
+    ),
     titleLarge: const TextStyle().copyWith(
       fontSize: 34,
       fontFamily: "Metropolis-bold",
@@ -59,7 +64,6 @@ class MyTextTheme {
       fontFamily: "Metropolis-regular",
       color: const Color(0xFF222222),
     ),
-    
   );
 
   static TextTheme darkTextTheme = TextTheme(
@@ -86,7 +90,7 @@ class MyTextTheme {
     headlineSmall: const TextStyle().copyWith(
       fontSize: 16,
       fontFamily: "Metropolis-semibold",
-      color: const Color(0xFF9B9B9B), // Adjusted color for dark theme
+      color: Colors.white, // Adjusted color for dark theme
     ),
     bodyLarge: const TextStyle().copyWith(
       fontSize: 24,
@@ -120,5 +124,10 @@ class MyTextTheme {
     ),
     displaySmall: const TextStyle().copyWith(
         color: Colors.white, fontSize: 14, fontFamily: "Metropolis-regular"),
+    displayMedium: const TextStyle().copyWith(
+      fontSize: 14,
+      fontFamily: "Metropolis-medium",
+      color: Colors.white,
+    ),
   );
 }

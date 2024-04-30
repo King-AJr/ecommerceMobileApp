@@ -1,3 +1,4 @@
+import "package:ecommerce_app/util/constants/colors.dart";
 import "package:flutter/material.dart";
 
 class MyAppBarTheme {
@@ -13,7 +14,7 @@ class MyAppBarTheme {
 
   static const darkAppBarTheme = AppBarTheme(
     elevation: 0,
-    backgroundColor: Colors.black,
+    backgroundColor: MyColors.colorDark,
     surfaceTintColor: Colors.transparent,
     iconTheme: IconThemeData(color: Colors.white, size: 24),
     actionsIconTheme: IconThemeData(color: Colors.white, size: 24),
