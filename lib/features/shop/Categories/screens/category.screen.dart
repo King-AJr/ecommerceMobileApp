@@ -14,10 +14,7 @@ class Categories extends StatelessWidget {
     return Scaffold(
       appBar: MyAppBar(
         context,
-        Text(
-          "Categories",
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
+        "Categories",
         actions: [
           IconButton(
             onPressed: () {},

@@ -12,6 +12,7 @@ class ProductController extends GetxController {
       'tagText': '-20%',
       'rating': 5.0,
       'showTag': true,
+      'addToCart': true,
     },
     {
       'image': 'assets/images/chelsea_booth.jpeg',
@@ -21,6 +22,7 @@ class ProductController extends GetxController {
       'tagText': '-20%',
       'rating': 1.0,
       'showTag': true,
+      'addToCart': true,
     },
     {
       'image': 'assets/images/vintage.jpeg',
@@ -30,6 +32,7 @@ class ProductController extends GetxController {
       'tagText': '-20%',
       'rating': 4.0,
       'showTag': true,
+      'addToCart': true,
     },
     // Add more product data as needed
   ] as List<Map<String, dynamic>>)
@@ -44,6 +47,7 @@ class ProductController extends GetxController {
       'tagText': 'NEW',
       'rating': 5.0,
       'showTag': true,
+      'addToCart': true,
     },
     {
       'image': 'assets/images/men_chinos.jpeg',
@@ -52,6 +56,7 @@ class ProductController extends GetxController {
       'tagColor': Colors.black,
       'tagText': 'NEW',
       'rating': 3.0,
+      'addToCart': true,
       'showTag': true,
     },
     {
@@ -61,6 +66,7 @@ class ProductController extends GetxController {
       'tagColor': Colors.black,
       'tagText': 'NEW',
       'rating': 4.0,
+      'addToCart': true,
       'showTag': true,
     },
     // Add more product data as needed

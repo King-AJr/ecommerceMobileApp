@@ -1,13 +1,14 @@
 import 'package:ecommerce_app/common/widgets/customElevatedButton.dart';
 import 'package:ecommerce_app/common/widgets/customTextButton.dart';
-import 'package:ecommerce_app/features/shop/Catalog/screens/gridView/grid_view_catalog.dart';
-import 'package:ecommerce_app/features/shop/Catalog/screens/listView/List_view_catalog.dart';
-import 'package:ecommerce_app/features/shop/filter/screens/filters.dart';
-import 'package:ecommerce_app/util/helpers/helper_functions.dart';
+import 'package:ecommerce_app/features/shop/Catalog/screens/gridView/grid_view_catalog.screen.dart';
+import 'package:ecommerce_app/features/shop/Catalog/screens/listView/List_view_catalog.screen.dart';
+import 'package:ecommerce_app/features/shop/favorites/screens/grid_view/grid_view.screen.dart';
+import 'package:ecommerce_app/features/shop/favorites/screens/listView/favorites.screen.dart';
+import 'package:ecommerce_app/features/shop/filter/screens/filter_options_screen/filters.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-AppBar CatalogAppBar(bool listView) {
+AppBar AppBarWithSubCategories(bool listView, bool fav, title) {
   return AppBar(
     actions: [
       IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
@@ -17,11 +18,11 @@ AppBar CatalogAppBar(bool listView) {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.fromLTRB(15, 5, 0, 0),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(15, 5, 0, 0),
             child: Text(
-              "Women's tops",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              title,
+              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ),
           SingleChildScrollView(
@@ -71,9 +72,17 @@ AppBar CatalogAppBar(bool listView) {
               ),
               IconButton(
                 onPressed: () {
-                  listView
-                      ? Get.to(const GridViewCatalogScreen())
-                      : Get.to(const CatalogListScreen());
+                  fav
+                      ? listView
+                          ? Get.to(() =>
+                              const GridViewFavoritesScreen(),
+                            )
+                          : Get.to(() =>
+                              const ListViewFavoritesScreen(),
+                            )
+                      : listView
+                          ? Get.to(() => const GridViewCatalogScreen())
+                          : Get.to(() => const CatalogListScreen());
                   listView = !listView;
                 },
                 icon: listView

@@ -19,9 +19,12 @@ AppBar MyBottomAppBar(BuildContext context, String title,
   );
 }
 
-AppBar MyAppBar(BuildContext context, Text title,
+AppBar MyAppBar(BuildContext context, String title,
     {List<Widget> actions = const []}) {
-  return AppBar(title: title, actions: actions);
+  return AppBar(
+      title: Text(
+        title,
+        style: Theme.of(context).textTheme.bodyMedium,
+      ),
+      actions: actions);
 }
-
-

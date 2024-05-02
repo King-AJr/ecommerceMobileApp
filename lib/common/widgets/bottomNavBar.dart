@@ -1,5 +1,8 @@
-import 'package:ecommerce_app/features/shop/Categories/screens/category.dart';
+import 'package:ecommerce_app/features/Profile/screens/profiles.screen.dart';
+import 'package:ecommerce_app/features/shop/Bag/my_bag.screen.dart';
+import 'package:ecommerce_app/features/shop/Categories/screens/category.screen.dart';
 import 'package:ecommerce_app/features/home/screens/main_page.dart';
+import 'package:ecommerce_app/features/shop/favorites/screens/listView/favorites.screen.dart';
 import 'package:ecommerce_app/util/constants/colors.dart';
 import 'package:ecommerce_app/util/constants/sizes.dart';
 import 'package:ecommerce_app/util/helpers/helper_functions.dart';
@@ -30,10 +33,10 @@ class MyBottomNavigationBar extends StatelessWidget {
               NavigationDestination(
                   icon: Icon(Icons.shopping_cart_outlined), label: 'Shop'),
               NavigationDestination(
-                  icon: Icon(Icons.shopping_bag_outlined), label: 'Bag'),
-              NavigationDestination(
                   icon: Icon(Icons.favorite_border_outlined),
                   label: 'Favorites'),
+              NavigationDestination(
+                  icon: Icon(Icons.shopping_bag_outlined), label: 'Bag'),
               NavigationDestination(
                   icon: Icon(Icons.person_2_outlined), label: 'Profile')
             ],
@@ -50,10 +53,8 @@ class NavigationController extends GetxController {
   final screens = [
     MainPage(),
     const Categories(),
-    Container(color: Colors.green),
-    Container(
-      color: Colors.blue,
-    ),
-    Container(color: Colors.yellow),
+    const ListViewFavoritesScreen(),
+    const MyBagScreen(),
+    const ProfileScreen(),
   ];
 }

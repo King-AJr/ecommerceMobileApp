@@ -1,5 +1,5 @@
 import "package:ecommerce_app/common/widgets/customTextField.dart";
-import "package:ecommerce_app/features/authentication/screens/login/login.dart";
+import "package:ecommerce_app/features/authentication/screens/login/login.screen.dart";
 import "package:flutter/material.dart";
 import "package:get/get.dart";
 

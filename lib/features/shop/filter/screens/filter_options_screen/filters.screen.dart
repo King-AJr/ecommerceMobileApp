@@ -1,10 +1,13 @@
 import 'package:ecommerce_app/common/widgets/myAppBars.dart';
-import 'package:ecommerce_app/features/shop/filter/screens/build_size_button.dart';
-import 'package:ecommerce_app/features/shop/filter/screens/my_range_slider.dart';
-import 'package:ecommerce_app/features/shop/filter/screens/subject_title.dart';
+import 'package:ecommerce_app/common/widgets/build_size_button.dart';
+import 'package:ecommerce_app/features/shop/filter/screens/filter_options_screen/my_range_slider.dart';
+import 'package:ecommerce_app/common/widgets/subject_title.dart';
+import 'package:ecommerce_app/features/shop/filter/screens/select_brand_screen/select_brand_screen.dart';
 import 'package:ecommerce_app/util/constants/colors.dart';
 import 'package:ecommerce_app/util/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 class FilterScreen extends StatelessWidget {
   const FilterScreen({super.key});
@@ -16,13 +19,11 @@ class FilterScreen extends StatelessWidget {
     return Scaffold(
       appBar: MyAppBar(
         context,
-        Text(
           "Filters",
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SubjectTitle(title: "Price range"),
             SizedBox(
@@ -78,30 +79,35 @@ class FilterScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     buildSizeButton(
+                      circular: false,
                       label: "XS",
                       height: 43,
                       width: 43,
                       color: darkMode ? Colors.black : Colors.white,
                     ),
                     buildSizeButton(
+                      circular: false,
                       label: "S",
                       height: 43,
                       width: 43,
                       color: darkMode ? Colors.black : Colors.white,
                     ),
                     buildSizeButton(
+                      circular: false,
                       label: "M",
                       height: 43,
                       width: 43,
                       color: darkMode ? Colors.black : Colors.white,
                     ),
                     buildSizeButton(
+                      circular: false,
                       label: "L",
                       height: 43,
                       width: 43,
                       color: darkMode ? Colors.black : Colors.white,
                     ),
                     buildSizeButton(
+                      circular: false,
                       label: "XL",
                       height: 43,
                       width: 43,
@@ -113,7 +119,7 @@ class FilterScreen extends StatelessWidget {
             ),
             const SubjectTitle(title: "Category"),
             SizedBox(
-              height: 120,
+              height: 150,
               width: double.infinity,
               child: Card(
                 elevation: 0.1,
@@ -125,37 +131,95 @@ class FilterScreen extends StatelessWidget {
                   childAspectRatio: 1 / 0.6,
                   // shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  children: const [
+                  children: [
                     buildSizeButton(
+                      circular: false,
                       label: "All",
-                      color: Colors.white,
+                      color: darkMode ? Colors.black : Colors.white,
                       height: 43,
                       width: 200,
                     ),
                     buildSizeButton(
+                      circular: false,
                       label: "Women",
-                      color: Colors.white,
+                      color: darkMode ? Colors.black : Colors.white,
                       height: 43,
                       width: 200,
                     ),
                     buildSizeButton(
+                      circular: false,
                       label: "Men",
-                      color: Colors.white,
+                      color: darkMode ? Colors.black : Colors.white,
                       height: 43,
                       width: 200,
                     ),
                     buildSizeButton(
+                      circular: false,
                       label: "Boys",
-                      color: Colors.white,
+                      color: darkMode ? Colors.black : Colors.white,
                       height: 43,
                       width: 200,
                     ),
                     buildSizeButton(
+                      circular: false,
                       label: "Girls",
-                      color: Colors.white,
+                      color: darkMode ? Colors.black : Colors.white,
                       height: 43,
                       width: 200,
                     ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 20, 20, 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Brand',
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Adidas, Jack & Jones, s.Oliver",
+                          textAlign: TextAlign.start,
+                          style: Theme.of(context).textTheme.labelSmall),
+                      GestureDetector(
+                        onTap: () => Get.to(() => SelectBrandScreen()),
+                        child: const Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          size: 15,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 120,
+              child: Card(
+                elevation: 0.1,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0),
+                ),
+                color: darkMode ? MyColors.colorDark : Colors.white,
+                child: Row(
+                  children: [
+                    buildSizeButton(
+                        label: "Discard",
+                        height: 43,
+                        width: 150,
+                        color: darkMode ? Colors.black : Colors.white,
+                        circular: true),
+                    buildSizeButton(
+                        label: "Apply",
+                        height: 43,
+                        width: 150,
+                        color: darkMode ? Colors.black : Colors.white,
+                        circular: true)
                   ],
                 ),
               ),

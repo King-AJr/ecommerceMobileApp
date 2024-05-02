@@ -1,21 +1,26 @@
 import 'package:ecommerce_app/common/widgets/add_to_cart_icon.dart';
+import 'package:ecommerce_app/common/widgets/ratingDisplay.dart';
+import 'package:ecommerce_app/features/shop/product_info/screen/product_info.screen.dart';
 import 'package:ecommerce_app/util/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CatalogCard extends StatelessWidget {
+class HorizontalProductCard extends StatelessWidget {
   final String name;
   final String brand;
   final double rating;
   final int price;
+  final bool addToCart;
   final String imageUrl;
 
-  const CatalogCard({
+  const HorizontalProductCard({
     Key? key,
     required this.name,
     required this.brand,
     required this.rating,
     required this.price,
     required this.imageUrl,
+    required this.addToCart,
   }) : super(key: key);
 
   @override
@@ -29,9 +34,11 @@ class CatalogCard extends StatelessWidget {
     final bool hasHalfStar = rating - filledStars >= 0.5; // Check for half star
 
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, "/product_info");
-      },
+      onTap: () => Get.to(
+        () => const ProductInfoScreen(
+          rating: 4.0,
+        ),
+      ),
       child: Container(
         height: 150,
         decoration: BoxDecoration(
@@ -75,31 +82,7 @@ class CatalogCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Row(
-                      children: List.generate(
-                        5,
-                        (index) {
-                          IconData iconData;
-                          Color starColor;
-
-                          if (index < filledStars) {
-                            // Full star
-                            iconData = Icons.star;
-                            starColor = const Color(0xFFFFBA49);
-                          } else if (index == filledStars && hasHalfStar) {
-                            // Half star
-                            iconData = Icons.star_half;
-                            starColor = const Color(0xFFFFBA49);
-                          } else {
-                            // Outline star
-                            iconData = Icons.star_border;
-                            starColor = Colors.grey;
-                          }
-
-                          return Icon(iconData, color: starColor, size: 18);
-                        },
-                      ),
-                    ),
+                    RatingOutput(rating: rating),
                     Text('$price\$',
                         style: theme.textTheme.labelLarge!
                             .copyWith(fontFamily: "Metropolis-medium")),
@@ -108,10 +91,12 @@ class CatalogCard extends StatelessWidget {
               ),
             ],
           ),
-          const Positioned(
+          Positioned(
             top: 105,
             right: -10,
-            child: AddToCartButton(),
+            child: AddToCartButton(
+              addToCart: addToCart,
+            ),
           ),
         ]),
       ),

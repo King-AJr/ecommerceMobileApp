@@ -67,6 +67,11 @@ class MyTextTheme {
   );
 
   static TextTheme darkTextTheme = TextTheme(
+    displayMedium: const TextStyle().copyWith(
+      fontSize: 14,
+      fontFamily: "Metropolis-medium",
+      color: Colors.white,
+    ),
     titleLarge: const TextStyle().copyWith(
       fontSize: 34,
       fontFamily: "Metropolis-bold",
@@ -124,10 +129,5 @@ class MyTextTheme {
     ),
     displaySmall: const TextStyle().copyWith(
         color: Colors.white, fontSize: 14, fontFamily: "Metropolis-regular"),
-    displayMedium: const TextStyle().copyWith(
-      fontSize: 14,
-      fontFamily: "Metropolis-medium",
-      color: Colors.white,
-    ),
   );
 }

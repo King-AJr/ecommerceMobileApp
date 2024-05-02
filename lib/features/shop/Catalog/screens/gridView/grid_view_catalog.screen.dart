@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/common/widgets/catalog_appbar.dart';
+import 'package:ecommerce_app/common/widgets/subcategories_appbar.dart';
 import 'package:ecommerce_app/common/widgets/grid_layout.dart';
 import 'package:ecommerce_app/common/widgets/product_card.dart';
 import 'package:ecommerce_app/util/constants/sizes.dart';
@@ -10,7 +10,7 @@ class GridViewCatalogScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CatalogAppBar(false),
+      appBar: AppBarWithSubCategories(false, false, "Women's tops"),
       body: SingleChildScrollView(
         child: GridLayout(
             itemCount: 6,
@@ -23,6 +23,7 @@ class GridViewCatalogScreen extends StatelessWidget {
                   image: 'assets/images/cat_image2.png',
                   title: 'Product 1',
                   price: 29.99,
+                  addToCart: true,
                   rating: 4,
                 ),
               );

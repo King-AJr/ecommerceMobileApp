@@ -16,6 +16,7 @@ class MainPage extends StatelessWidget {
       'tagColor': Colors.black,
       'tagText': 'NEW',
       'showTag': true,
+      'addToCart': true,
     },
     {
       'image': 'assets/images/men_chinos.jpeg',
@@ -24,6 +25,7 @@ class MainPage extends StatelessWidget {
       'tagColor': Colors.black,
       'tagText': 'NEW',
       'showTag': true,
+      'addToCart': true,
     },
     {
       'image': 'assets/images/wine_collar_polo.webp',
@@ -32,6 +34,7 @@ class MainPage extends StatelessWidget {
       'tagColor': Colors.black,
       'tagText': 'NEW',
       'showTag': true,
+      'addToCart': true,
     },
     // Add more product data as needed
   ];
@@ -50,7 +53,8 @@ class MainPage extends StatelessWidget {
               tagColor: product['tagColor'],
               tagText: product['tagText'],
               showTag: product['showTag'],
-              rating: product['rating']
+              rating: product['rating'],
+              addToCart: product['addToCart'],
             );
           }).toList(),
         ),

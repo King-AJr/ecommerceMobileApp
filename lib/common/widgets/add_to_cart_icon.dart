@@ -1,9 +1,9 @@
 import 'package:ecommerce_app/util/constants/colors.dart';
 import 'package:flutter/material.dart';
 
-
 class AddToCartButton extends StatelessWidget {
-  const AddToCartButton({super.key});
+  final bool addToCart;
+  const AddToCartButton({super.key, required this.addToCart});
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +12,18 @@ class AddToCartButton extends StatelessWidget {
       onPressed: () {
         // Handle button press
       },
-      icon: Icon(
-        darkMode ? Icons.favorite : Icons.favorite_border_outlined,
-        color: MyColors.colorDark,
-        size: 20,
-      ),
+      icon: addToCart
+          ? Icon(
+              darkMode ? Icons.favorite : Icons.favorite_border_outlined,
+              color: MyColors.colorDark,
+              size: 20,
+            )
+          : Icon(
+              //Icons.shopping_bag
+              darkMode ? Icons.shopping_bag : Icons.shopping_bag_outlined,
+              color: MyColors.colorDark,
+              size: 20,
+            ),
       label: const Text(''),
       style: ElevatedButton.styleFrom(
         elevation: 0.2,
