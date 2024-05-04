@@ -3,14 +3,10 @@ import "package:ecommerce_app/util/helpers/helper_functions.dart";
 import "package:flutter/material.dart";
 
 class CustomTextField extends StatelessWidget {
-  final String label;
-  final IconData? prefixIcon;
-  final IconData? suffixIcon;
+  final Widget child;
 
   const CustomTextField({
-    required this.label,
-    this.prefixIcon,
-    this.suffixIcon,
+    required this.child,
   });
 
   @override
@@ -25,15 +21,7 @@ class CustomTextField extends StatelessWidget {
           borderRadius:
               BorderRadius.circular(5.0), // Adjust the radius as needed
         ),
-        child: Expanded(
-          child: TextFormField(
-            decoration: InputDecoration(
-              labelText: label,
-              prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
-              suffixIcon: suffixIcon != null ? Icon(suffixIcon) : null,
-            ),
-          ),
-        ),
+        child: Expanded(child: child),
       ),
     );
   }

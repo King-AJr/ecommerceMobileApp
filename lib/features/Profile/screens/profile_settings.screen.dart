@@ -29,15 +29,40 @@ class _SettingScreenState extends State<SettingsScreen> {
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: 10),
-            const CustomTextField(label: 'Full name'),
-            const CustomTextField(label: 'Date of birth'),
+            CustomTextField(
+              child: TextFormField(
+                maxLines: null,
+                minLines: null,
+                decoration: const InputDecoration(
+                    labelText: 'Full name',
+                    ),
+              ),
+            ),
+            
+            CustomTextField(
+              child: TextFormField(
+                maxLines: null,
+                minLines: null,
+                decoration: const InputDecoration(
+                    labelText: 'Date of Birth',
+                    ),
+              ),
+            ),
             const SizedBox(height: 30),
             Text(
               "Password",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: 10),
-            const CustomTextField(label: 'Password'),
+            CustomTextField(
+              child: TextFormField(
+                maxLines: null,
+                minLines: null,
+                decoration: const InputDecoration(
+                    labelText: 'Full name',
+                    ),
+              ),
+            ),
             const SizedBox(height: 30),
             Text(
               "Notification",

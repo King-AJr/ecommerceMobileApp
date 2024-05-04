@@ -20,7 +20,7 @@ class SignupScreen extends StatelessWidget {
             children: [
               const SignUpForm(),
               const SizedBox(
-                height: 100,
+                height: 50,
               ),
               SocialSignUpWidget(
                 signUpText: "Or sign up with social account",

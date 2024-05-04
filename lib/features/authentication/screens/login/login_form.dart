@@ -16,12 +16,26 @@ class LoginForm extends StatelessWidget {
     return Form(
       child: Column(
         children: [
-          const CustomTextField(label: "Email", prefixIcon: Icons.email),
-          const CustomTextField(
-            label: "Password",
-            prefixIcon: Icons.password_rounded,
-            suffixIcon: Iconsax.eye_slash,
-          ),
+          CustomTextField(
+              child: TextFormField(
+                maxLines: null,
+                minLines: null,
+                decoration: const InputDecoration(
+                    labelText: 'Email',
+                    prefixIcon: Icon(Icons.email),
+                )
+              ),
+            ),
+          CustomTextField(
+              child: TextFormField(
+                maxLines: null,
+                minLines: null,
+                decoration: const InputDecoration(
+                    labelText: 'Password',
+                    prefixIcon: Icon(Icons.password_rounded),
+                    suffixIcon: Icon(Iconsax.eye_slash),),
+              ),
+            ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

@@ -956,6 +956,9 @@ PODS:
     - Firebase/Firestore (= 10.24.0)
     - firebase_core
     - Flutter
+  - connectivity_plus (0.0.1):
+    - Flutter
+    - ReachabilitySwift
   - Firebase/Auth (10.24.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 10.24.0)
@@ -968,7 +971,7 @@ PODS:
     - Firebase/Auth (= 10.24.0)
     - firebase_core
     - Flutter
-  - firebase_core (2.30.0):
+  - firebase_core (2.30.1):
     - Firebase/CoreOnly (= 10.24.0)
     - Flutter
   - FirebaseAppCheckInterop (10.24.0)
@@ -1116,14 +1119,20 @@ PODS:
     - nanopb/encode (= 2.30910.0)
   - nanopb/decode (2.30910.0)
   - nanopb/encode (2.30910.0)
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
   - PromisesObjC (2.4.0)
+  - ReachabilitySwift (5.2.2)
   - RecaptchaInterop (100.0.0)
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
+  - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
 
 SPEC REPOS:
   trunk:
@@ -1145,25 +1154,31 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - ReachabilitySwift
     - RecaptchaInterop
 
 EXTERNAL SOURCES:
   cloud_firestore:
     :path: ".symlinks/plugins/cloud_firestore/ios"
+  connectivity_plus:
+    :path: ".symlinks/plugins/connectivity_plus/ios"
   firebase_auth:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
     :path: Flutter
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
 
 SPEC CHECKSUMS:
   abseil: d121da9ef7e2ff4cab7666e76c5a3e0915ae08c3
   BoringSSL-GRPC: 1e2348957acdbcad360b80a264a90799984b2ba6
   cloud_firestore: ec5623634fc3b82f7b23a6e87f116c953eae714d
+  connectivity_plus: bf0076dd84a130856aa636df1c71ccaff908fa1d
   Firebase: 91fefd38712feb9186ea8996af6cbdef41473442
   firebase_auth: fbab032fb9e0cad83046a547465b60d2a8b9ab21
-  firebase_core: 66b99b4fb4e5d7cc4e88d4c195fe986681f3466a
+  firebase_core: 7f1e1156934d0da3be260174812842df9420e4ab
   FirebaseAppCheckInterop: fecc08c89936c8acb1428d8088313aabedb348e4
   FirebaseAuth: 711d01cccefaf10035b3090a92956d0dd4f99088
   FirebaseCore: 11dc8a16dfb7c5e3c3f45ba0e191a33ac4f50894
@@ -1179,7 +1194,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 8000756fc1c19d2e5697b90311f7832d2e33f6cd
   leveldb-library: e8eadf9008a61f9e1dde3978c086d2b6d9b9dc28
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
+  path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
+  ReachabilitySwift: 2128f3a8c9107e1ad33574c6e58e8285d460b149
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
 
 PODFILE CHECKSUM: 7be2f5f74864d463a8ad433546ed1de7e0f29aef

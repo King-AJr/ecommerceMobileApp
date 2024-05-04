@@ -15,9 +15,19 @@ class ForgotPasswordForm extends StatelessWidget {
     return Form(
       child: Column(
         children: [
-          const CustomTextField(label: "Email", prefixIcon: Icons.email),
-          const SizedBox(height: Sizes.spaceBetweenInputFields),
-          const SizedBox(height: Sizes.spaceBetweenInputFields),
+          CustomTextField(
+            child: TextFormField(
+              expands: true,
+              maxLines: null,
+              minLines: null,
+              decoration: const InputDecoration(
+                labelText: "Email",
+                prefixIcon: Icon(Icons.email),
+              ),
+            ),
+          ),
+          //const CustomTextField(label: "Email", 
+          ////prefixIcon: Icons.email, expands: true),
           Container(
             height: 50,
             width: double.infinity,

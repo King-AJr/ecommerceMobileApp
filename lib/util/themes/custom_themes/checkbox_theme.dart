@@ -1,3 +1,4 @@
+import "package:ecommerce_app/util/constants/colors.dart";
 import "package:flutter/material.dart";
 
 class MyCheckboxTheme {
@@ -14,13 +15,12 @@ class MyCheckboxTheme {
     }),
     fillColor: MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.selected)) {
-        return const Color(0xFFDB3022);
+        return MyColors.primary;
       } else {
         return Colors.transparent;
       }
     }),
   );
-
 
   static CheckboxThemeData darkCheckBoxTheme = CheckboxThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
@@ -33,7 +33,7 @@ class MyCheckboxTheme {
     }),
     fillColor: MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.selected)) {
-        return const Color(0xFFDB3022);
+        return MyColors.colorDark;
       } else {
         return Colors.transparent;
       }
