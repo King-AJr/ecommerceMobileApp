@@ -1,9 +1,8 @@
-import "package:ecommerce_app/common/widgets/bottomNavBar.dart";
 import "package:ecommerce_app/common/widgets/customTextField.dart";
-import "package:ecommerce_app/util/constants/sizes.dart";
+import "package:ecommerce_app/features/authentication/controllers/forget_password/forget_password.controller.dart";
+import "package:ecommerce_app/util/helpers/validator.dart";
 import "package:flutter/material.dart";
-import "package:get/get_core/src/get_main.dart";
-import "package:get/route_manager.dart";
+import "package:get/get.dart";
 
 class ForgotPasswordForm extends StatelessWidget {
   const ForgotPasswordForm({
@@ -12,28 +11,33 @@ class ForgotPasswordForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ForgetPasswordController());
+    Validator validator = Validator();
+
     return Form(
+      key: controller.forgetPasswordFormKey,
       child: Column(
         children: [
           CustomTextField(
             child: TextFormField(
-              expands: true,
+              controller: controller.email,
+              validator: (value) => validator.validateEmail(value),
               maxLines: null,
               minLines: null,
               decoration: const InputDecoration(
-                labelText: "Email",
+                labelText: 'Email',
                 prefixIcon: Icon(Icons.email),
               ),
             ),
           ),
-          //const CustomTextField(label: "Email", 
+          //const CustomTextField(label: "Email",
           ////prefixIcon: Icons.email, expands: true),
           Container(
             height: 50,
             width: double.infinity,
             margin: const EdgeInsets.symmetric(vertical: 30),
             child: ElevatedButton(
-              onPressed: () => Get.to(() => const MyBottomNavigationBar()),
+              onPressed: () => controller.sendPasswordResetEmail(),
               child: Text(
                 'FORGOT PASSWORD',
                 style: Theme.of(context).textTheme.labelMedium!.copyWith(

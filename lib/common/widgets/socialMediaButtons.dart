@@ -1,5 +1,7 @@
 import 'package:ecommerce_app/common/widgets/image_button.dart';
+import 'package:ecommerce_app/features/authentication/controllers/login/login.controller.dart';
 import "package:flutter/material.dart";
+import 'package:get/get.dart';
 
 class SocialSignUpWidget extends StatelessWidget {
   final String signUpText;
@@ -15,6 +17,7 @@ class SocialSignUpWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Column(
       children: [
         Text(signUpText, style: Theme.of(context).textTheme.labelMedium),
@@ -26,7 +29,7 @@ class SocialSignUpWidget extends StatelessWidget {
               width: 90.0,
               child: ImageCardButton(
                 imagePath: 'assets/images/google_logo.png',
-                onPressed: onGooglePressed,
+                onPressed: () => controller.googleSignIn(),
               ),
             ),
             const SizedBox(width: 20),

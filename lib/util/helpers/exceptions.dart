@@ -1,25 +1,25 @@
 String handleFirebaseAuthException(errorCode) {
   String message;
   switch (errorCode) {
-    case 'auth/email-already-in-use':
+    case 'email-already-in-use':
       message = 'The email address is already in use by another account.';
       break;
-    case 'auth/invalid-email':
+    case 'invalid-email':
       message = 'The email address is not valid.';
       break;
-    case 'auth/operation-not-allowed':
+    case 'operation-not-allowed':
       message = 'Email/password accounts are not enabled.';
       break;
-    case 'auth/weak-password':
+    case 'weak-password':
       message = 'The password is not strong enough.';
       break;
-    case 'auth/user-disabled':
+    case 'user-disabled':
       message = 'The user account has been disabled by an administrator.';
       break;
-    case 'auth/user-not-found':
+    case 'user-not-found':
       message = 'There is no user record corresponding to this identifier.';
       break;
-    case 'auth/wrong-password':
+    case 'wrong-password':
       message = 'The password is invalid or the user does not have a password.';
       break;
     default:
@@ -82,4 +82,48 @@ String handleFirebaseGeneralException(String errorCode) {
       break;
   }
   return message;
+}
+
+class MyPlatformException implements Exception {
+  final String code;
+
+  MyPlatformException(this.code);
+
+  String get message {
+    switch (code) {
+      case 'INVALID_LOGIN_CREDENTIALS':
+        return 'Invalid login credentials. Please double-check your information.';
+      case 'INVALID_ARGUMENT':
+        return 'Invalid argument provided to the authentication method.';
+      case 'INVALID_CUSTOM_TOKEN':
+        return 'Invalid custom token.';
+      case 'INVALID_EMAIL':
+        return 'The provided email address is invalid.';
+      case 'INVALID_PASSWORD':
+        return 'Incorrect password. Please try again.';
+      case 'USER_DISABLED':
+        return 'The user account has been disabled by an administrator.';
+      case 'USER_NOT_FOUND':
+        return 'There is no user record corresponding to this identifier. The user may have been deleted.';
+      case 'WEAK_PASSWORD':
+        return 'The password is too weak.';
+      case 'EMAIL_ALREADY_IN_USE':
+        return 'The email address is already in use by another account.';
+      case 'OPERATION_NOT_ALLOWED':
+        return 'The given sign-in provider is disabled for this Firebase project. Enable it in the Firebase console.';
+      case 'NETWORK_REQUEST_FAILED':
+        return 'Network request failed. Please check your internet connection.';
+      case 'INVALID_ID_TOKEN':
+        return 'Invalid ID token. The user may have been signed out.';
+      case 'TOKEN_EXPIRED':
+        return 'The user\'s credential is no longer valid. The user must sign in again.';
+      default:
+        return 'An undefined platform exception happened.';
+    }
+  }
+
+  @override
+  String toString() {
+    return 'TPlatformException(code: $code, message: $message)';
+  }
 }

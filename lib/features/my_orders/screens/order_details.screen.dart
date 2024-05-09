@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/common/widgets/build_size_button.dart';
-import 'package:ecommerce_app/common/widgets/customElevatedButton.dart';
 import 'package:ecommerce_app/common/widgets/myAppBars.dart';
 import 'package:ecommerce_app/util/constants/colors.dart';
 import 'package:ecommerce_app/util/constants/sizes.dart';
@@ -75,14 +74,14 @@ class OrderDetailsScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              buildSizeButton(
+             BuildSizeButton(
                 label: "Reorder",
                 color: darkMode ? MyColors.colorDark : Colors.white,
                 height: 50,
                 width: 160,
                 circular: true,
               ),
-              const buildSizeButton(
+              const BuildSizeButton(
                 label: "Leave Feedback",
                 color: MyColors.primary,
                 height: 50,

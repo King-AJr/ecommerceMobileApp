@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class buildSizeButton extends StatelessWidget {
+class BuildSizeButton extends StatelessWidget {
   final String label;
   final double height;
   final double width;
   final Color color;
   final bool circular;
-  const buildSizeButton({
+  const BuildSizeButton({
     super.key,
     required this.label,
     required this.height,
@@ -16,7 +16,6 @@ class buildSizeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final darkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       height: height,
       width: width,

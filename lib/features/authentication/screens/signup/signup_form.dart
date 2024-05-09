@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/common/widgets/customTextField.dart';
-import 'package:ecommerce_app/features/authentication/controllers/signup.controller.dart';
+import 'package:ecommerce_app/features/authentication/controllers/signup/signup.controller.dart';
 import 'package:ecommerce_app/features/authentication/screens/login/login.screen.dart';
 import 'package:ecommerce_app/util/constants/colors.dart';
 import 'package:ecommerce_app/util/helpers/validator.dart';
@@ -8,11 +8,11 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class SignUpForm extends StatelessWidget {
-  const SignUpForm({Key? key}) : super(key: key);
+  final SignUpController controller;
+  const SignUpForm({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SignUpController());
     Validator _validator = Validator();
 
     return Form(
@@ -70,18 +70,6 @@ class SignUpForm extends StatelessWidget {
             ),
             CustomTextField(
               child: TextFormField(
-                controller: controller.usernameController,
-                validator: (value) => _validator.validateUsername(value),
-                maxLines: null,
-                minLines: null,
-                decoration: const InputDecoration(
-                  labelText: 'Username',
-                  prefixIcon: Icon(Iconsax.user_edit),
-                ),
-              ),
-            ),
-            CustomTextField(
-              child: TextFormField(
                 controller: controller.phoneController,
                 validator: (value) => _validator.validatePhoneNumber(value),
                 maxLines: null,
@@ -120,7 +108,7 @@ class SignUpForm extends StatelessWidget {
                 Text('Already have an account?',
                     style: Theme.of(context).textTheme.labelMedium),
                 GestureDetector(
-                  onTap: () => Get.to(() => const LoginScreen()),
+                  onTap: () => Get.off(() => const LoginScreen()),
                   child: const Icon(
                     Icons.arrow_right_alt,
                     color: Color(0xFFDB3022),
@@ -129,6 +117,7 @@ class SignUpForm extends StatelessWidget {
               ],
             ),
             TermsAndConditionCheckBox(controller: controller),
+            const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () => controller.signup(),
               child:

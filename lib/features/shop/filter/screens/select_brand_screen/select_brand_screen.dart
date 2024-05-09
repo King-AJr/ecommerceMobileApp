@@ -4,7 +4,7 @@ import 'package:ecommerce_app/util/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class SelectBrandScreen extends StatefulWidget {
-  SelectBrandScreen({super.key});
+  const SelectBrandScreen({super.key});
 
   @override
   State<SelectBrandScreen> createState() => _SelectBrandScreenState();
@@ -106,13 +106,13 @@ class _SelectBrandScreenState extends State<SelectBrandScreen> {
           color: darkMode ? MyColors.colorDark : Colors.white,
           child: Row(
             children: [
-              buildSizeButton(
+              BuildSizeButton(
                   label: "Discard",
                   height: 43,
                   width: 150,
                   color: darkMode ? Colors.black : Colors.white,
                   circular: true),
-              buildSizeButton(
+              BuildSizeButton(
                   label: "Apply",
                   height: 43,
                   width: 150,

@@ -1,7 +1,9 @@
 import 'package:ecommerce_app/common/widgets/customTextField.dart';
 import 'package:ecommerce_app/common/widgets/myAppBars.dart';
+import 'package:ecommerce_app/common/widgets/section_heading.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart'; // Import Cupertino library for CupertinoSwitch
+import 'package:flutter/cupertino.dart';
+import 'package:iconsax/iconsax.dart'; // Import Cupertino library for CupertinoSwitch
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -24,49 +26,39 @@ class _SettingScreenState extends State<SettingsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Personal information",
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-            const SizedBox(height: 10),
-            CustomTextField(
-              child: TextFormField(
-                maxLines: null,
-                minLines: null,
-                decoration: const InputDecoration(
-                    labelText: 'Full name',
-                    ),
+            SizedBox(
+              width: double.infinity,
+              child: Column(
+                children: [
+                  const CircleAvatar(
+                    backgroundImage:
+                        AssetImage('assets/images/smilingwoman.jpeg'),
+                  ),
+                  TextButton(
+                    onPressed: null,
+                    child: Text('Change Profile picture',
+                        style: Theme.of(context).textTheme.labelMedium),
+                  ),
+                ],
               ),
             ),
-            
-            CustomTextField(
-              child: TextFormField(
-                maxLines: null,
-                minLines: null,
-                decoration: const InputDecoration(
-                    labelText: 'Date of Birth',
-                    ),
-              ),
+            const SizedBox(height: 8),
+            const Divider(),
+            const SizedBox(height: 16),
+            const SectionHeading(
+              title: "Profile information",
+              showActionButton: false,
             ),
+            const SizedBox(height: 16),
+            const profileRow(field: 'Name: ', value: 'King AJ'),
+            const SizedBox(height: 16),
+            const profileRow(field: 'Email: ', value: 'talk2ata@gmail.com'),
+            const SizedBox(height: 16),
+            const profileRow(field: 'Phone number ', value: '070756839557'),
             const SizedBox(height: 30),
-            Text(
-              "Password",
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-            const SizedBox(height: 10),
-            CustomTextField(
-              child: TextFormField(
-                maxLines: null,
-                minLines: null,
-                decoration: const InputDecoration(
-                    labelText: 'Full name',
-                    ),
-              ),
-            ),
-            const SizedBox(height: 30),
-            Text(
-              "Notification",
-              style: Theme.of(context).textTheme.headlineSmall,
+            const SectionHeading(
+              title: "Notification",
+              showActionButton: false,
             ),
             _buildNotificationRow(
               label: "Sales",
@@ -117,6 +109,44 @@ class _SettingScreenState extends State<SettingsScreen> {
           value: value,
           onChanged: onChanged,
           activeColor: const Color(0xFF2AA952),
+        ),
+      ],
+    );
+  }
+}
+
+class profileRow extends StatelessWidget {
+  final String field;
+  final String value;
+
+  const profileRow({
+    super.key,
+    required this.field,
+    required this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          flex: 3,
+          child: Text(
+            field,
+            style: Theme.of(context).textTheme.displaySmall,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        Expanded(
+          flex: 5,
+          child: Text(
+            value,
+            style: Theme.of(context).textTheme.displaySmall,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        const Expanded(
+          child: Icon(Iconsax.arrow_right_34, size: 18),
         ),
       ],
     );

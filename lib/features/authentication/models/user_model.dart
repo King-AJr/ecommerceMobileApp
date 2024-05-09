@@ -10,7 +10,6 @@ class UserModel {
   final String phoneNumber;
   final String firstName;
   final String lastName;
-  final String username;
   final String profilePicture;
 
   // Required this for user
@@ -18,7 +17,6 @@ class UserModel {
     required this.id,
     required this.email,
     required this.firstName,
-    required this.username,
     required this.lastName,
     required this.phoneNumber,
     required this.profilePicture,
@@ -50,7 +48,6 @@ class UserModel {
         email: '',
         firstName: '',
         lastName: '',
-        username: '',
         phoneNumber: '',
         profilePicture: '',
       );
@@ -63,7 +60,6 @@ class UserModel {
       'LastName': lastName,
       'Email': email,
       'PhoneNumber': phoneNumber,
-      'Username': username,
       'ProfilePicture': profilePicture,
     };
   }
@@ -73,13 +69,13 @@ class UserModel {
       DocumentSnapshot<Map<String, dynamic>> document) {
     if (document.data() != null) {
       final data = document.data()!;
+      print(data);
       return UserModel(
         id: document.id,
         firstName: data['FirstName'] ?? '',
         lastName: data['LastName'] ?? '',
         email: data['Email'] ?? '',
         phoneNumber: data['PhoneNumber'] ?? '',
-        username: data['Username'] ?? '',
         profilePicture: data['ProfilePicture'] ?? '',
       );
     }

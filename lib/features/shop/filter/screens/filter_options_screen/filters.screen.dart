@@ -6,7 +6,7 @@ import 'package:ecommerce_app/features/shop/filter/screens/select_brand_screen/s
 import 'package:ecommerce_app/util/constants/colors.dart';
 import 'package:ecommerce_app/util/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 
 class FilterScreen extends StatelessWidget {
@@ -78,35 +78,35 @@ class FilterScreen extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    buildSizeButton(
+                    BuildSizeButton(
                       circular: false,
                       label: "XS",
                       height: 43,
                       width: 43,
                       color: darkMode ? Colors.black : Colors.white,
                     ),
-                    buildSizeButton(
+                    BuildSizeButton(
                       circular: false,
                       label: "S",
                       height: 43,
                       width: 43,
                       color: darkMode ? Colors.black : Colors.white,
                     ),
-                    buildSizeButton(
+                    BuildSizeButton(
                       circular: false,
                       label: "M",
                       height: 43,
                       width: 43,
                       color: darkMode ? Colors.black : Colors.white,
                     ),
-                    buildSizeButton(
+                    BuildSizeButton(
                       circular: false,
                       label: "L",
                       height: 43,
                       width: 43,
                       color: darkMode ? Colors.black : Colors.white,
                     ),
-                    buildSizeButton(
+                    BuildSizeButton(
                       circular: false,
                       label: "XL",
                       height: 43,
@@ -132,35 +132,35 @@ class FilterScreen extends StatelessWidget {
                   // shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
-                    buildSizeButton(
+                    BuildSizeButton(
                       circular: false,
                       label: "All",
                       color: darkMode ? Colors.black : Colors.white,
                       height: 43,
                       width: 200,
                     ),
-                    buildSizeButton(
+                    BuildSizeButton(
                       circular: false,
                       label: "Women",
                       color: darkMode ? Colors.black : Colors.white,
                       height: 43,
                       width: 200,
                     ),
-                    buildSizeButton(
+                    BuildSizeButton(
                       circular: false,
                       label: "Men",
                       color: darkMode ? Colors.black : Colors.white,
                       height: 43,
                       width: 200,
                     ),
-                    buildSizeButton(
+                    BuildSizeButton(
                       circular: false,
                       label: "Boys",
                       color: darkMode ? Colors.black : Colors.white,
                       height: 43,
                       width: 200,
                     ),
-                    buildSizeButton(
+                    BuildSizeButton(
                       circular: false,
                       label: "Girls",
                       color: darkMode ? Colors.black : Colors.white,
@@ -208,13 +208,13 @@ class FilterScreen extends StatelessWidget {
                 color: darkMode ? MyColors.colorDark : Colors.white,
                 child: Row(
                   children: [
-                    buildSizeButton(
+                    BuildSizeButton(
                         label: "Discard",
                         height: 43,
                         width: 150,
                         color: darkMode ? Colors.black : Colors.white,
                         circular: true),
-                    buildSizeButton(
+                    BuildSizeButton(
                         label: "Apply",
                         height: 43,
                         width: 150,

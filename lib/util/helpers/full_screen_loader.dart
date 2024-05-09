@@ -20,7 +20,7 @@ class FullScreenLoader {
           child: Column(
             children: [
               const SizedBox(height: 250),
-              AnimationLoaderWidget(text: text, animation: animation)
+              AnimationLoaderWidget(text: text)
             ],
           ),
         ),

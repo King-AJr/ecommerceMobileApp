@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/features/authentication/models/user_model.dart';
-import 'package:ecommerce_app/util/helpers/firebase_auth_exceptions.dart';
+import 'package:ecommerce_app/util/helpers/exceptions.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

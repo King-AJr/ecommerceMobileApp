@@ -15,31 +15,33 @@ class MyLoader {
         duration: const Duration(seconds: 3),
         backgroundColor: Colors.transparent,
         content: Container(
-          padding: const EdgeInsets.all(12),
-          margin: const EdgeInsets.symmetric(
-            horizontal: 30,
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            color: MyHelperFunctions.isDarkMode(Get.context!)
-                ? Colors.grey[700]!.withOpacity(0.9)
-                : Colors.grey[300]!.withOpacity(0.9),
-          ),
-          child: Center(
-            child: Text(message, style: Theme.of(Get.context!).textTheme.labelLarge),)
-        ),
+            padding: const EdgeInsets.all(12),
+            margin: const EdgeInsets.symmetric(
+              horizontal: 30,
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              color: MyHelperFunctions.isDarkMode(Get.context!)
+                  ? Colors.grey[700]!.withOpacity(0.9)
+                  : Colors.grey[300]!.withOpacity(0.9),
+            ),
+            child: Center(
+              child: Text(message,
+                  style: Theme.of(Get.context!).textTheme.labelLarge),
+            )),
       ),
     );
   }
 
   static successSnackBar({required title, message = '', duration = 3}) {
+    final darkMode = MyHelperFunctions.isDarkMode(Get.context!);
     Get.snackbar(
       title,
       message,
       isDismissible: true,
       shouldIconPulse: true,
-      colorText: Colors.white,
-      backgroundColor: MyColors.primary,
+      colorText: darkMode ? Colors.white : MyColors.colorDark,
+      backgroundColor: darkMode ? MyColors.colorDark : Colors.white,
       snackPosition: SnackPosition.BOTTOM,
       duration: Duration(seconds: duration),
       margin: const EdgeInsets.all(10),

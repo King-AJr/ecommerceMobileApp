@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/data/authentication/authentication_repository.dart';
 import 'package:ecommerce_app/data/user/user_repository.dart';
 import 'package:ecommerce_app/features/authentication/models/user_model.dart';
-import 'package:ecommerce_app/features/authentication/screens/login/login.screen.dart';
+import 'package:ecommerce_app/features/authentication/screens/verify_email/verify_email.screen.dart';
 import 'package:ecommerce_app/util/helpers/full_screen_loader.dart';
 import 'package:ecommerce_app/util/helpers/my_loader.dart';
 import 'package:ecommerce_app/util/helpers/network_manager.dart';
@@ -18,7 +18,6 @@ class SignUpController extends GetxController {
   final passwordController = TextEditingController();
   final firstnameController = TextEditingController();
   final lastnameController = TextEditingController();
-  final usernameController = TextEditingController();
   final phoneController = TextEditingController();
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
@@ -36,8 +35,10 @@ class SignUpController extends GetxController {
 
       //check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
-      print("isconnected status: $isConnected");
       if (!isConnected) {
+        MyLoader.errorSnackBar(
+            title: "oh Snap!",
+            message: 'You currently are not connected to the internet');
         FullScreenLoader.stopLoader();
         return;
       }
@@ -61,7 +62,6 @@ class SignUpController extends GetxController {
         id: userCredential.user!.uid,
         firstName: firstnameController.text.trim(),
         lastName: lastnameController.text.trim(),
-        username: usernameController.text.trim(),
         email: emailController.text.trim(),
         phoneNumber: phoneController.text.trim(),
         profilePicture: '',
@@ -70,7 +70,7 @@ class SignUpController extends GetxController {
       final userRepository = Get.put(UserRepository());
       await userRepository.saveUserRecord(newUser);
 
-      FullScreenLoader.stopLoader(); 
+      FullScreenLoader.stopLoader();
 
       //show success message
       MyLoader.successSnackBar(
@@ -79,10 +79,15 @@ class SignUpController extends GetxController {
               "Your account has been successfully created, verify email to continue");
 
       //move to email verification screen
-      Get.to(() => const LoginScreen());
+      Get.to(
+        () => VerifyEmailScreen(
+          email: emailController.text.trim(),
+        ),
+      );
     } catch (e) {
-      FullScreenLoader.stopLoader(); 
+      FullScreenLoader.stopLoader();
       //show error message
+      print(e);
       MyLoader.errorSnackBar(title: "oh Snap!", message: e.toString());
     }
   }

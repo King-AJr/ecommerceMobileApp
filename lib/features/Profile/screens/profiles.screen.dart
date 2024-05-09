@@ -1,11 +1,11 @@
 import 'package:ecommerce_app/common/widgets/myAppBars.dart';
+import 'package:ecommerce_app/data/authentication/authentication_repository.dart';
 import 'package:ecommerce_app/features/Profile/screens/profile_item.dart';
 import 'package:ecommerce_app/features/Profile/screens/profile_settings.screen.dart';
 import 'package:ecommerce_app/features/my_orders/screens/my_orders.screen.dart';
 import 'package:ecommerce_app/util/constants/colors.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -15,8 +15,8 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Dummy user data (replace with actual user data logic)
     final userData = {
-      'name': 'King AJ',
-      'email': 'king@example.com',
+      'name': FirebaseAuth.instance.currentUser?.displayName,
+      'email': FirebaseAuth.instance.currentUser?.email,
       'orderCount': 12,
       'addressCount': 3,
       'paymentMethod': 'Visa **34',
@@ -30,36 +30,39 @@ class ProfileScreen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(15.0),
-              child: Row(
-                children: [
-                  const CircleAvatar(
-                    backgroundImage:
-                        AssetImage('assets/images/smilingwoman.jpeg'),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${userData['name']}',
-                          style: const TextStyle(
-                            fontFamily: "Metropolis-semibold",
-                            fontSize: 18,
-                          ),
-                        ),
-                        Text(
-                          '${userData['email']} ',
-                          style: const TextStyle(
-                            fontFamily: "Metropolis-light",
-                            color: Color(0xFF9B9B9B),
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
+              child: GestureDetector(
+                onTap: () => Get.to(() => const SettingsScreen()),
+                child: Row(
+                  children: [
+                    const CircleAvatar(
+                      backgroundImage:
+                          AssetImage('assets/images/smilingwoman.jpeg'),
                     ),
-                  )
-                ],
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${userData['name']}',
+                            style: const TextStyle(
+                              fontFamily: "Metropolis-semibold",
+                              fontSize: 18,
+                            ),
+                          ),
+                          Text(
+                            '${userData['email']} ',
+                            style: const TextStyle(
+                              fontFamily: "Metropolis-light",
+                              color: Color(0xFF9B9B9B),
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 5),
@@ -106,12 +109,12 @@ class ProfileScreen extends StatelessWidget {
               width: double.infinity,
               margin: const EdgeInsets.symmetric(vertical: 30),
               child: ElevatedButton(
-                onPressed: () {
-                  // Implement sign-out logic here
-                  Navigator.pushNamed(context, '/login');
+                onPressed: () async {
+                  await AuthenticationRepository.instance.signOut();
+                  AuthenticationRepository.instance.screenRedirect();
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFDB3022),
+                  backgroundColor: MyColors.primary,
                 ),
                 child: const Text(
                   'SIGN OUT',

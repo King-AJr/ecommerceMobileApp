@@ -4,7 +4,6 @@ import 'package:ecommerce_app/features/shop/Categories/screens/category.screen.d
 import 'package:ecommerce_app/features/home/screens/main_page.dart';
 import 'package:ecommerce_app/features/shop/favorites/screens/listView/favorites.screen.dart';
 import 'package:ecommerce_app/util/constants/colors.dart';
-import 'package:ecommerce_app/util/constants/sizes.dart';
 import 'package:ecommerce_app/util/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

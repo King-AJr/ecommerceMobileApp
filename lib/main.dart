@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/bindings/general_bindings.dart';
+import 'package:ecommerce_app/common/widgets/bottom_nav_bar.dart';
 import 'package:ecommerce_app/data/authentication/authentication_repository.dart';
 import 'package:ecommerce_app/features/authentication/screens/forgot_password/forgot_password.screen.dart';
 import 'package:ecommerce_app/features/authentication/screens/login/login.screen.dart';
@@ -37,11 +38,9 @@ class MyApp extends StatelessWidget {
         theme: MyAppTheme.lightTheme,
         darkTheme: MyAppTheme.darkTheme,
         initialBinding: GeneralBindings(),
-        home: const SignupScreen(),
+        initialRoute: '/home',
         routes: {
-          '/signup': (context) => const SignupScreen(),
-          '/login': (context) => const LoginScreen(),
-          '/forgot_password': (context) => const ForgotPasswordScreen()
+          '/home': (context) => const MyBottomNavigationBar(),
         });
   }
 }

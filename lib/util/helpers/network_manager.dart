@@ -22,17 +22,17 @@ class NetworkManager extends GetxController {
   }
 
   Future<void> _updateConnectionStatus(ConnectivityResult result) async {
-    _connectivityStatus.value = result;
-    print("Connection status: $_connectivityStatus");
-    if (_connectivityStatus.value == ConnectivityResult.none) {
-      MyLoader.warningSnackBar(title: "No internet connection");
+    final bool status = await isConnected();
+    if (!status) {
+      MyLoader.warningSnackBar(
+          title: "No internet connection",
+          message: 'Please connect to an internet service provider');
     }
   }
 
   Future<bool> isConnected() async {
     try {
       final result = await _connectivity.checkConnectivity();
-      print("Connection status: $result");
       if (result == ConnectivityResult.none) {
         return false;
       } else {
