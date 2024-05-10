@@ -1,7 +1,6 @@
 import "package:ecommerce_app/common/widgets/customTextField.dart";
 import "package:ecommerce_app/features/authentication/controllers/login/login.controller.dart";
 import "package:ecommerce_app/features/authentication/screens/forgot_password/forgot_password.screen.dart";
-import "package:ecommerce_app/util/constants/sizes.dart";
 import "package:ecommerce_app/util/helpers/validator.dart";
 import "package:flutter/material.dart";
 import "package:get/get.dart";
@@ -36,21 +35,23 @@ class LoginForm extends StatelessWidget {
             ),
           ),
           CustomTextField(
-            child: TextFormField(
-              controller: loginController.password,
-              maxLines: 1,
-              minLines: null,
-              obscureText: loginController.hidePassword.value,
-              validator: (value) => _validator.validatePassword(value),
-              decoration: InputDecoration(
-                labelText: 'Password',
-                prefixIcon: const Icon(Icons.password_rounded),
-                suffixIcon: IconButton(
-                  onPressed: () => loginController.hidePassword.value =
-                      !loginController.hidePassword.value,
-                  icon: loginController.hidePassword.value
-                      ? const Icon(Iconsax.eye_slash)
-                      : const Icon(Iconsax.eye),
+            child: Obx(
+              () => TextFormField(
+                controller: loginController.password,
+                maxLines: 1,
+                minLines: null,
+                obscureText: loginController.hidePassword.value,
+                validator: (value) => _validator.validatePassword(value),
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  prefixIcon: const Icon(Icons.password_rounded),
+                  suffixIcon: IconButton(
+                    onPressed: () => loginController.hidePassword.value =
+                        !loginController.hidePassword.value,
+                    icon: loginController.hidePassword.value
+                        ? const Icon(Iconsax.eye_slash)
+                        : const Icon(Iconsax.eye),
+                  ),
                 ),
               ),
             ),

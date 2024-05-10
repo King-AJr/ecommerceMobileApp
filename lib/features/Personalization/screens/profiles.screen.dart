@@ -1,7 +1,8 @@
 import 'package:ecommerce_app/common/widgets/myAppBars.dart';
 import 'package:ecommerce_app/data/authentication/authentication_repository.dart';
-import 'package:ecommerce_app/features/Profile/screens/profile_item.dart';
-import 'package:ecommerce_app/features/Profile/screens/profile_settings.screen.dart';
+import 'package:ecommerce_app/features/Personalization/controllers/user.controller.dart';
+import 'package:ecommerce_app/features/Personalization/screens/profile_item.dart';
+import 'package:ecommerce_app/features/Personalization/screens/profile_settings.screen.dart';
 import 'package:ecommerce_app/features/my_orders/screens/my_orders.screen.dart';
 import 'package:ecommerce_app/util/constants/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -13,7 +14,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Dummy user data (replace with actual user data logic)
+    final controller = Get.put(UserController());
+
     final userData = {
       'name': FirebaseAuth.instance.currentUser?.displayName,
       'email': FirebaseAuth.instance.currentUser?.email,
@@ -39,23 +41,27 @@ class ProfileScreen extends StatelessWidget {
                           AssetImage('assets/images/smilingwoman.jpeg'),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            '${userData['name']}',
-                            style: const TextStyle(
-                              fontFamily: "Metropolis-semibold",
-                              fontSize: 18,
+                          Obx(
+                            () => Text(
+                              controller.user.value.FullName,
+                              style: const TextStyle(
+                                fontFamily: "Metropolis-semibold",
+                                fontSize: 18,
+                              ),
                             ),
                           ),
-                          Text(
-                            '${userData['email']} ',
-                            style: const TextStyle(
-                              fontFamily: "Metropolis-light",
-                              color: Color(0xFF9B9B9B),
-                              fontSize: 14,
+                          Obx(
+                            () => Text(
+                              controller.user.value.email,
+                              style: const TextStyle(
+                                fontFamily: "Metropolis-light",
+                                color: Color(0xFF9B9B9B),
+                                fontSize: 14,
+                              ),
                             ),
                           ),
                         ],
@@ -65,7 +71,6 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 5),
             ListView(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,

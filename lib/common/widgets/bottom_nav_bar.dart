@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/Profile/screens/profiles.screen.dart';
+import 'package:ecommerce_app/features/Personalization/screens/profiles.screen.dart';
 import 'package:ecommerce_app/features/shop/Bag/my_bag.screen.dart';
 import 'package:ecommerce_app/features/shop/Categories/screens/category.screen.dart';
 import 'package:ecommerce_app/features/home/screens/main_page.dart';

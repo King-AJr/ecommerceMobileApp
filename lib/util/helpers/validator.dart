@@ -1,7 +1,6 @@
 class Validator {
   String? validateName(String? value, String? field) {
     if (value == null || value.isEmpty) {
-      print('name is required');
       return '$field is required.';
     }
 

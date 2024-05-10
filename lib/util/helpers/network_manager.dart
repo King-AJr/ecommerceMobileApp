@@ -11,8 +11,6 @@ class NetworkManager extends GetxController {
   final Connectivity _connectivity = Connectivity();
 
   late StreamSubscription<ConnectivityResult> _connectivitySubscription;
-  final Rx<ConnectivityResult> _connectivityStatus =
-      ConnectivityResult.none.obs;
 
   @override
   void onInit() {

@@ -17,7 +17,7 @@ class ForgetPasswordController extends GetxController {
     try {
       //start loader
       FullScreenLoader.openLoadingDialog(
-          'We are processing you information...', 'assets/images/spinner.gif');
+          'Processing your request...', 'assets/images/spinner.gif');
 
       //check for validation
       if (!forgetPasswordFormKey.currentState!.validate()) {
@@ -58,7 +58,7 @@ class ForgetPasswordController extends GetxController {
     try {
       //start loader
       FullScreenLoader.openLoadingDialog(
-          'We are processing you information...', 'assets/images/spinner.gif');
+          'Processing your request...', 'assets/images/spinner.gif');
 
       //check for validation
       if (!forgetPasswordFormKey.currentState!.validate()) {

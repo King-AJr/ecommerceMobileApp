@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/common/widgets/bottom_nav_bar.dart';
+import 'package:ecommerce_app/data/user/user_repository.dart';
 import 'package:ecommerce_app/features/authentication/screens/login/login.screen.dart';
 import 'package:ecommerce_app/features/authentication/screens/signup/signup.screen.dart';
 import 'package:ecommerce_app/features/authentication/screens/verify_email/verify_email.screen.dart';
@@ -14,6 +15,9 @@ class AuthenticationRepository extends GetxController {
 
   final deviceStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
+
+  //get authenticated user
+  User? get authUser => _auth.currentUser;
 
   @override
   void onReady() {
@@ -50,11 +54,14 @@ class AuthenticationRepository extends GetxController {
       return await _auth.signInWithEmailAndPassword(
           email: email, password: password);
     } on FirebaseAuthException catch (authError) {
+      print(authError.code);
       throw handleFirebaseAuthException(authError.code);
     } on FirebaseException catch (firebaseError) {
       throw handleFirebaseGeneralException(firebaseError.code);
     } on FormatException catch (_) {
       throw handleFirebaseFormatException();
+    } on PlatformException catch (e) {
+      throw MyPlatformException(e.code).message;
     } catch (e) {
       throw 'Something went wrong. Please try again';
     }
@@ -72,6 +79,8 @@ class AuthenticationRepository extends GetxController {
       throw handleFirebaseGeneralException(firebaseError.code);
     } on FormatException catch (_) {
       throw handleFirebaseFormatException();
+    } on PlatformException catch (e) {
+      throw MyPlatformException(e.code).message;
     } catch (e) {
       throw 'Something went wrong. Please try again';
     }
@@ -114,6 +123,8 @@ class AuthenticationRepository extends GetxController {
       throw handleFirebaseGeneralException(firebaseError.code);
     } on FormatException catch (_) {
       throw handleFirebaseFormatException();
+    } on PlatformException catch (e) {
+      throw MyPlatformException(e.code).message;
     } catch (e) {
       print(e.toString());
       throw 'Something went wrong. Please try again';
@@ -140,7 +151,48 @@ class AuthenticationRepository extends GetxController {
   ///LOGOUT USER
   Future<void> signOut() async {
     try {
+      deviceStorage.write('isFirstTime', false);
       await FirebaseAuth.instance.signOut();
+    } on FirebaseAuthException catch (authError) {
+      throw handleFirebaseAuthException(authError.code);
+    } on FirebaseException catch (firebaseError) {
+      throw handleFirebaseGeneralException(firebaseError.code);
+    } on FormatException catch (_) {
+      throw handleFirebaseFormatException();
+    } on PlatformException catch (e) {
+      throw MyPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  Future<void> deleteAccount() async {
+    try {
+      await UserRepository.instance.removeUserRecord(_auth.currentUser!.uid);
+      await _auth.currentUser!.delete();
+    } on FirebaseAuthException catch (authError) {
+      throw handleFirebaseAuthException(authError.code);
+    } on FirebaseException catch (firebaseError) {
+      throw handleFirebaseGeneralException(firebaseError.code);
+    } on FormatException catch (_) {
+      throw handleFirebaseFormatException();
+    } on PlatformException catch (e) {
+      throw MyPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  ///REAUTHENTICATE USER
+  Future<void> reAuthenticateWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      //create credential
+      AuthCredential credential =
+          EmailAuthProvider.credential(email: email, password: password);
+
+      //reauthenticate user
+      await _auth.currentUser!.reauthenticateWithCredential(credential);
     } on FirebaseAuthException catch (authError) {
       throw handleFirebaseAuthException(authError.code);
     } on FirebaseException catch (firebaseError) {

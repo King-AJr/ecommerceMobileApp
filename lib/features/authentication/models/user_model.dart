@@ -6,11 +6,11 @@ import 'package:ecommerce_app/util/helpers/formatters.dart';
 class UserModel {
   // Keep those values final which do not want to update
   final String id;
-  final String email;
-  final String phoneNumber;
-  final String firstName;
-  final String lastName;
-  final String profilePicture;
+  String email;
+  String phoneNumber;
+  String firstName;
+  String lastName;
+  String profilePicture;
 
   // Required this for user
   UserModel({

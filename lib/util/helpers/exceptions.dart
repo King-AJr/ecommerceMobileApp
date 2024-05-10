@@ -5,7 +5,7 @@ String handleFirebaseAuthException(errorCode) {
       message = 'The email address is already in use by another account.';
       break;
     case 'invalid-email':
-      message = 'The email address is not valid.';
+      message = 'Email Address or password is invalid';
       break;
     case 'operation-not-allowed':
       message = 'Email/password accounts are not enabled.';
@@ -16,11 +16,17 @@ String handleFirebaseAuthException(errorCode) {
     case 'user-disabled':
       message = 'The user account has been disabled by an administrator.';
       break;
+    case 'invalid-credential':
+      message = "There's no user with this email";
+      break;
     case 'user-not-found':
       message = 'There is no user record corresponding to this identifier.';
       break;
     case 'wrong-password':
-      message = 'The password is invalid or the user does not have a password.';
+      message = 'Email Address or password is invalid';
+    case 'requires-recent-login':
+      message =
+          'This operation is sensitive and requires recent authentication. Log in again before retrying this request.';
       break;
     default:
       message = 'An unknown error occurred.';

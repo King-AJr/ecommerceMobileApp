@@ -1,9 +1,14 @@
-import 'package:ecommerce_app/common/widgets/customTextField.dart';
 import 'package:ecommerce_app/common/widgets/myAppBars.dart';
 import 'package:ecommerce_app/common/widgets/section_heading.dart';
+import 'package:ecommerce_app/features/Personalization/controllers/user.controller.dart';
+import 'package:ecommerce_app/features/Personalization/screens/changeEmail.dart';
+import 'package:ecommerce_app/features/Personalization/screens/changeName.dart';
+import 'package:ecommerce_app/features/Personalization/screens/change_phone.dart';
+import 'package:ecommerce_app/features/Personalization/screens/profile_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:iconsax/iconsax.dart'; // Import Cupertino library for CupertinoSwitch
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -19,6 +24,7 @@ class _SettingScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(UserController());
     return Scaffold(
       appBar: MyBottomAppBar(context, "Settings"),
       body: SingleChildScrollView(
@@ -50,12 +56,39 @@ class _SettingScreenState extends State<SettingsScreen> {
               showActionButton: false,
             ),
             const SizedBox(height: 16),
-            const profileRow(field: 'Name: ', value: 'King AJ'),
+            Obx(
+              () => ProfileRow(
+                  field: 'Name: ',
+                  value: controller.user.value.FullName,
+                  onPressed: () => Get.to(() => ChangeName())),
+            ),
+            Obx(
+              () => ProfileRow(
+                  field: 'Email: ',
+                  value: controller.user.value.email,
+                  onPressed: () => Get.to(() => ChangeEmail())),
+            ),
+            const Divider(),
             const SizedBox(height: 16),
-            const profileRow(field: 'Email: ', value: 'talk2ata@gmail.com'),
+            const SectionHeading(
+              title: "Personal information",
+              showActionButton: false,
+            ),
             const SizedBox(height: 16),
-            const profileRow(field: 'Phone number ', value: '070756839557'),
-            const SizedBox(height: 30),
+            ProfileRow(
+                field: 'USER ID',
+                value: controller.user.value.id,
+                onPressed: null,
+                icon: Iconsax.copy),
+            Obx(
+              () => ProfileRow(
+                  field: 'Phone number ',
+                  value: controller.user.value.phoneNumber,
+                  onPressed: () => Get.to(() => ChangePhone())),
+            ),
+            const ProfileRow(field: 'Gender', value: 'Male', onPressed: null),
+            const Divider(),
+            const SizedBox(height: 16),
             const SectionHeading(
               title: "Notification",
               showActionButton: false,
@@ -87,6 +120,16 @@ class _SettingScreenState extends State<SettingsScreen> {
                 });
               },
             ),
+            const SizedBox(height: 16),
+            Center(
+              child: TextButton(
+                onPressed: () => controller.deleteAccountPopUp(),
+                child: const Text(
+                  'Close Account',
+                  style: TextStyle(color: Colors.red),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -109,44 +152,6 @@ class _SettingScreenState extends State<SettingsScreen> {
           value: value,
           onChanged: onChanged,
           activeColor: const Color(0xFF2AA952),
-        ),
-      ],
-    );
-  }
-}
-
-class profileRow extends StatelessWidget {
-  final String field;
-  final String value;
-
-  const profileRow({
-    super.key,
-    required this.field,
-    required this.value,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          flex: 3,
-          child: Text(
-            field,
-            style: Theme.of(context).textTheme.displaySmall,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
-        Expanded(
-          flex: 5,
-          child: Text(
-            value,
-            style: Theme.of(context).textTheme.displaySmall,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
-        const Expanded(
-          child: Icon(Iconsax.arrow_right_34, size: 18),
         ),
       ],
     );
