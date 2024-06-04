@@ -9,6 +9,7 @@ import 'package:ecommerce_app/util/helpers/network_manager.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class UserController extends GetxController {
   static UserController get instance => Get.find();
@@ -27,24 +28,31 @@ class UserController extends GetxController {
   final verifyPassword = TextEditingController();
   final hidePassword = true.obs;
   GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
+  Rx<bool> isLoading = false.obs;
 
   ///Save user information from any service provider
   Future<void> saveUserRecord(UserCredential? userCredential) async {
     try {
-      if (userCredential != null) {
-        //conver name to first and last name
-        final nameParts =
-            UserModel.splitFullName(userCredential.user!.displayName!);
-        final user = UserModel(
-          id: userCredential.user!.uid,
-          email: userCredential.user!.email ?? '',
-          firstName: nameParts[0],
-          lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
-          phoneNumber: userCredential.user!.phoneNumber ?? '',
-          profilePicture: userCredential.user!.photoURL ?? '',
-        );
+      await fetchUserRecord();
 
-        await userRepository.saveUserRecord(user);
+      //if no user record stored
+      if (user.value.id.isEmpty) {
+        if (userCredential != null) {
+          //convert name to first and last name
+          final nameParts =
+              UserModel.splitFullName(userCredential.user!.displayName!);
+          final user = UserModel(
+            id: userCredential.user!.uid,
+            email: userCredential.user!.email ?? '',
+            firstName: nameParts[0],
+            lastName:
+                nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
+            phoneNumber: userCredential.user!.phoneNumber ?? '',
+            profilePicture: userCredential.user!.photoURL ?? '',
+          );
+
+          await userRepository.saveUserRecord(user);
+        }
       }
     } catch (e) {
       MyLoader.warningSnackBar(
@@ -56,10 +64,13 @@ class UserController extends GetxController {
 
   Future<void> fetchUserRecord() async {
     try {
+      isLoading.value = true;
       final user = await userRepository.fetchUserDetails();
       this.user(user);
     } catch (e) {
       user(UserModel.empty());
+    } finally {
+      isLoading.value = false;
     }
   }
 
@@ -94,14 +105,12 @@ class UserController extends GetxController {
           auth.authUser!.providerData.map((e) => e.providerId).first;
 
       if (provider.isNotEmpty) {
-        print(provider);
         if (provider.contains('google.com')) {
           await auth.signInWithGoogle();
           await auth.deleteAccount();
           FullScreenLoader.stopLoader();
           Get.offAll(() => const LoginScreen());
         } else if (provider == 'password') {
-          print('in password provider');
           FullScreenLoader.stopLoader();
           Get.to(() => const ReAuthLoginScreen());
         }
@@ -148,6 +157,33 @@ class UserController extends GetxController {
     } catch (e) {
       FullScreenLoader.stopLoader();
       MyLoader.warningSnackBar(title: 'Oh Snap!', message: e.toString());
+    }
+  }
+
+  ///Upload user profile image
+  uploadUserProfile() async {
+    try {
+      final image = await ImagePicker().pickImage(
+        source: ImageSource.gallery,
+        imageQuality: 80,
+        maxHeight: 512,
+        maxWidth: 512,
+      );
+      if (image != null) {
+        final imageUrl =
+            await userRepository.uploadImage('Users/Images/Profiles/', image);
+        Map<String, dynamic> json = {'ProfilePicture': imageUrl};
+        await userRepository.updateSingleField(json);
+
+        user.value.profilePicture = imageUrl;
+        user.refresh();
+
+        MyLoader.successSnackBar(
+            title: 'Success!', message: 'Profile picture updated');
+      }
+    } catch (e) {
+      MyLoader.errorSnackBar(
+          title: 'Oh Snap!', message: 'Something went wrong $e');
     }
   }
 }

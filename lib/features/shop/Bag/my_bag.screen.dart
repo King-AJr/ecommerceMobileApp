@@ -73,15 +73,18 @@ class MyBagScreen extends StatelessWidget {
             const Expanded(
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: 'Enter your promo code',
+                  labelText: 'Enter your promo code',
                   border: InputBorder.none,
                   enabledBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
-                  contentPadding: EdgeInsets.symmetric(vertical: 14.0),
+                  contentPadding: EdgeInsets.symmetric(vertical: 0.0),
                 ),
               ),
             ),
             Container(
+              height: 60,
+              width: 60,
+              padding: EdgeInsets.zero,
               decoration: BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(30.0),

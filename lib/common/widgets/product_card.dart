@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
   final String image;
+  final String brand;
   final String title;
   final double price;
   final double rating;
@@ -21,7 +22,9 @@ class ProductCard extends StatelessWidget {
     required this.rating,
     this.tagColor,
     this.tagText,
-    this.showTag = false, required this.addToCart,
+    this.showTag = false,
+    required this.addToCart,
+    this.brand = "AJ's collection",
   }) : super(key: key);
 
   @override
@@ -34,8 +37,8 @@ class ProductCard extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
-      height: 310,
-      width: 180,
+      height: 325,
+      width: 190,
       color: darkMode ? Colors.black : MyColors.colorLight,
       child: Container(
         decoration: BoxDecoration(
@@ -76,38 +79,33 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  RatingOutput(rating: rating),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
+                    padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding:
-                              const EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
-                          child: Text(title,
-                              style: Theme.of(context).textTheme.labelMedium),
+                        RatingOutput(rating: rating),
+                        const SizedBox(height: 10),
+                        Text(
+                          brand,
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge!
+                              .copyWith(color: MyColors.secondary),
                         ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding:
-                              const EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
-                          child: Text(
-                            '\$$price',
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelLarge!
-                                .copyWith(
-                                    color: MyColors.primary,
-                                    fontFamily: "Metropolis-medium"),
-                          ),
+                        Text(
+                          title,
+                          style: Theme.of(context).textTheme.labelMedium,
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          '\$$price',
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge!
+                              .copyWith(
+                                  color: MyColors.primary,
+                                  fontFamily: "Metropolis-medium"),
                         ),
                       ],
                     ),
@@ -140,7 +138,7 @@ class ProductCard extends StatelessWidget {
               ),
             Positioned(
               top: 160,
-              left: 113,
+              left: 125,
               child: AddToCartButton(
                 addToCart: addToCart,
               ),

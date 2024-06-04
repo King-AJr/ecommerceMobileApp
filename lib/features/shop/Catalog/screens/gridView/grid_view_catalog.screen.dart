@@ -14,11 +14,10 @@ class GridViewCatalogScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: GridLayout(
             itemCount: 6,
-            mainAxisExtent: 310,
+            mainAxisExtent: 345,
             itemBuilder: (_, index) {
               return const Padding(
-                padding: EdgeInsets.only(
-                    left: Sizes.allRoundPadding, top: Sizes.allRoundPadding),
+                padding: EdgeInsets.only(left: 5, top: 5),
                 child: ProductCard(
                   image: 'assets/images/cat_image2.png',
                   title: 'Product 1',

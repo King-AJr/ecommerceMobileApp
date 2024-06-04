@@ -13,7 +13,6 @@ class UpdateUserInfoController extends GetxController {
   final userController = UserController.instance;
 
   ///variables
-  
 
   Future<void> updateSingleField(
       String? field, String? value, GlobalKey<FormState> formKey) async {
@@ -38,8 +37,10 @@ class UpdateUserInfoController extends GetxController {
       //update rx value
       if (field == 'Email') {
         userController.user.value.email = value!;
+        userController.user.refresh();
       } else if (field == 'Phone') {
         userController.user.value.phoneNumber = value!;
+        userController.user.refresh();
       }
 
       FullScreenLoader.stopLoader();
@@ -76,6 +77,7 @@ class UpdateUserInfoController extends GetxController {
       //update Rx value
       userController.user.value.firstName = firstName;
       userController.user.value.lastName = lastName;
+      userController.user.refresh();
 
       FullScreenLoader.stopLoader();
 
@@ -90,7 +92,5 @@ class UpdateUserInfoController extends GetxController {
     }
   }
 
-  Future<void> closeAccount () async {
-
-  }
+  Future<void> closeAccount() async {}
 }

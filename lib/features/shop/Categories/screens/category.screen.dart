@@ -1,16 +1,21 @@
+import 'package:ecommerce_app/common/widgets/category_shimmer.dart';
 import 'package:ecommerce_app/common/widgets/myAppBars.dart';
+import 'package:ecommerce_app/features/shop/Categories/controllers/categories.controllers.dart';
 import 'package:ecommerce_app/features/shop/Categories/screens/category_items.dart';
 import 'package:ecommerce_app/util/constants/colors.dart';
 import 'package:ecommerce_app/util/constants/sizes.dart';
 import 'package:ecommerce_app/util/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Categories extends StatelessWidget {
   const Categories({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // Determine dark mode outside of build method
     final darkMode = MyHelperFunctions.isDarkMode(context);
+
     return Scaffold(
       appBar: MyAppBar(
         context,
@@ -48,29 +53,50 @@ class Categories extends StatelessWidget {
               style: TextStyle(fontSize: 16, color: Color(0xFF9B9B9B)),
             ),
           ),
-          Expanded(
-            child: Container(
-              color: darkMode ? Colors.black : MyColors.colorLight,
-              child: ListView(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                children: const [
-                  CategoryItem(name: "Tops"),
-                  CategoryItem(name: "Shirts & Blouses"),
-                  CategoryItem(name: "Cardigans & Sweaters"),
-                  CategoryItem(name: "Knitwear"),
-                  CategoryItem(name: "Blazers"),
-                  CategoryItem(name: "Outerwears"),
-                  CategoryItem(name: "Pants"),
-                  CategoryItem(name: "Jeans"),
-                  CategoryItem(name: "Shorts"),
-                  CategoryItem(name: "Skirts"),
-                  CategoryItem(name: "Dresses"),
-                ],
-              ),
-            ),
-          ),
+          CategoryList(), // No need to wrap with const since it's a StatelessWidget
         ],
       ),
+    );
+  }
+}
+
+class CategoryList extends StatelessWidget {
+  const CategoryList({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final darkMode = MyHelperFunctions.isDarkMode(context);
+    final CategoryController controller = Get.put(CategoryController());
+
+    return Obx(
+      () {
+        if (controller.isLoading.value) {
+          return const CategoryShimmer();
+        }
+
+        if (controller.parentCategories.isEmpty) {
+          return Center(
+            child: Text(
+              'No data found',
+              style: Theme.of(context)
+                  .textTheme
+                  .labelMedium!
+                  .apply(color: Colors.white),
+            ),
+          );
+        }
+
+        return Expanded(
+          child: ListView.builder(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            itemCount: controller.parentCategories.length,
+            itemBuilder: (context, index) {
+              final category = controller.parentCategories[index];
+              return CategoryItem(name: category.name);
+            },
+          ),
+        );
+      },
     );
   }
 }

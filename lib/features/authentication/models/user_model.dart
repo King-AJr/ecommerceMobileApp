@@ -69,7 +69,6 @@ class UserModel {
       DocumentSnapshot<Map<String, dynamic>> document) {
     if (document.data() != null) {
       final data = document.data()!;
-      print(data);
       return UserModel(
         id: document.id,
         firstName: data['FirstName'] ?? '',

@@ -28,3 +28,27 @@ AppBar MyAppBar(BuildContext context, String title,
       ),
       actions: actions);
 }
+
+AppBar settingsAppBar(BuildContext context, String title,
+    {List<Widget> actions = const [], VoidCallback? leadingCallback}) {
+  return AppBar(
+    leading: leadingCallback != null
+        ? IconButton(
+            icon: const Icon(Icons.arrow_back_ios),
+            onPressed: leadingCallback,
+          )
+        : null,
+    bottom: PreferredSize(
+      preferredSize: const Size.fromHeight(Sizes.appBarHeight),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        alignment: AlignmentDirectional.bottomStart,
+        child: Text(
+          title,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+      ),
+    ),
+    actions: actions,
+  );
+}

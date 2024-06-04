@@ -87,7 +87,6 @@ class ForgetPasswordController extends GetxController {
     } catch (e) {
       FullScreenLoader.stopLoader();
       //show error message
-      print(e);
       MyLoader.errorSnackBar(title: "oh Snap!", message: e.toString());
     }
   }

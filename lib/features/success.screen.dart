@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/common/widgets/bottom_nav_bar.dart';
+import 'package:ecommerce_app/features/home/screens/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

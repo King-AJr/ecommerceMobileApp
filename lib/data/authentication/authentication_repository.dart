@@ -54,7 +54,6 @@ class AuthenticationRepository extends GetxController {
       return await _auth.signInWithEmailAndPassword(
           email: email, password: password);
     } on FirebaseAuthException catch (authError) {
-      print(authError.code);
       throw handleFirebaseAuthException(authError.code);
     } on FirebaseException catch (firebaseError) {
       throw handleFirebaseGeneralException(firebaseError.code);
@@ -126,7 +125,6 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw MyPlatformException(e.code).message;
     } catch (e) {
-      print(e.toString());
       throw 'Something went wrong. Please try again';
     }
   }

@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/common/widgets/bottom_nav_bar.dart';
+import 'package:ecommerce_app/common/widgets/circular_image.dart';
 import 'package:ecommerce_app/common/widgets/myAppBars.dart';
 import 'package:ecommerce_app/common/widgets/section_heading.dart';
 import 'package:ecommerce_app/features/Personalization/controllers/user.controller.dart';
@@ -26,7 +28,13 @@ class _SettingScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     final controller = Get.put(UserController());
     return Scaffold(
-      appBar: MyBottomAppBar(context, "Settings"),
+      appBar: settingsAppBar(
+        context,
+        'Settings',
+        leadingCallback: () => Get.offAll(
+          () => const MyBottomNavigationBar(),
+        ),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(15),
         child: Column(
@@ -36,12 +44,21 @@ class _SettingScreenState extends State<SettingsScreen> {
               width: double.infinity,
               child: Column(
                 children: [
-                  const CircleAvatar(
-                    backgroundImage:
-                        AssetImage('assets/images/smilingwoman.jpeg'),
+                  Obx(
+                    () {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image = networkImage.isNotEmpty
+                          ? networkImage
+                          : 'assets/images/smilingwoman.jpeg';
+                      return CircularImage(
+                          image: image,
+                          isNetworkImage: networkImage.isNotEmpty,
+                          height: 80,
+                          width: 80);
+                    },
                   ),
                   TextButton(
-                    onPressed: null,
+                    onPressed: () => controller.uploadUserProfile(),
                     child: Text('Change Profile picture',
                         style: Theme.of(context).textTheme.labelMedium),
                   ),

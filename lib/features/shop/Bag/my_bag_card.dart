@@ -62,7 +62,10 @@ class MyBagCard extends StatelessWidget {
                         children: [
                           Text(
                             name,
-                            style: Theme.of(context).textTheme.displayMedium,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall!
+                                .copyWith(color: MyColors.colorDark),
                           ),
                           IconButton(
                             onPressed: () {},
@@ -127,7 +130,7 @@ class MyBagCard extends StatelessWidget {
                           ),
                           Text(
                             '$price\$',
-                            style: Theme.of(context).textTheme.displayMedium,
+                            style: Theme.of(context).textTheme.labelLarge,
                           ),
                         ],
                       ),

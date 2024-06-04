@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/common/widgets/category_shimmer.dart';
+import 'package:ecommerce_app/common/widgets/circular_image.dart';
 import 'package:ecommerce_app/common/widgets/myAppBars.dart';
 import 'package:ecommerce_app/data/authentication/authentication_repository.dart';
 import 'package:ecommerce_app/features/Personalization/controllers/user.controller.dart';
@@ -36,9 +38,28 @@ class ProfileScreen extends StatelessWidget {
                 onTap: () => Get.to(() => const SettingsScreen()),
                 child: Row(
                   children: [
-                    const CircleAvatar(
-                      backgroundImage:
-                          AssetImage('assets/images/smilingwoman.jpeg'),
+                    Obx(
+                      () {
+                        if (controller.isLoading.value) {
+                          return const SizedBox(
+                              width: 150, child: CategoryShimmer());
+                        }
+
+                        final networkImage =
+                            controller.user.value.profilePicture;
+                        final image = networkImage.isNotEmpty
+                            ? networkImage
+                            : 'assets/images/smilingwoman.jpeg';
+                        return SizedBox(
+                          height: 80,
+                          width: 80,
+                          child: CircularImage(
+                              image: image,
+                              isNetworkImage: networkImage.isNotEmpty,
+                              height: 80,
+                              width: 80),
+                        );
+                      },
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
